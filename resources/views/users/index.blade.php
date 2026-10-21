@@ -3878,7 +3878,7 @@
                             <div class="teacher-image">
 
                                 <a href="{{ route('user.teacher.details', $teacher->id) }}"> <img
-                                        src="{{ asset('storage/' . $teacher->image) }}" alt="{{ $teacher->name }}"></a>
+                                        src="{{ asset('frontend/assets/teacher/' . $teacher->image) }}" alt="{{ $teacher->name }}"></a>
 
                             </div>
 

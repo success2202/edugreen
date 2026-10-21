@@ -523,7 +523,7 @@ RESPONSIVE INFORMATION
             <div class="teacher-image-frame">
 
                 <img
-                    src="{{ asset('storage/' . $teacher->image) }}"
+                    src="{{ asset('frontend/assets/teacher/' . $teacher->image) }}"
                     alt="{{ $teacher->name }}"
                 >
 

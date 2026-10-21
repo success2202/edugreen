@@ -1485,7 +1485,7 @@
         {{-- Logo --}}
         <div class="preloader-logo">
             <img
-                src="{{ asset('storage/'. $school->logo) }}"
+                src="{{ asset('frontend/assets/img/logo/' . $school->logo) }}" 
                 alt="School Logo"
             >
         </div>

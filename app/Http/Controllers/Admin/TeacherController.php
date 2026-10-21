@@ -38,10 +38,33 @@ class TeacherController extends Controller
             'status' => 'nullable|boolean',
         ]);
 
+        // if ($request->hasFile('image')) {
+        //     $validated['image'] = $request->file('image')
+        //         ->store('teachers', 'public');
+        // }
+
+
+
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')
-                ->store('teachers', 'public');
-        }
+
+    // Set upload folder
+    $imagePath = public_path('frontend/assets/teacher');
+
+    // Create folder if it doesn't exist
+    if (!is_dir($imagePath)) {
+        mkdir($imagePath, 0755, true);
+    }
+
+    // Generate a unique filename
+    $filename = 'teacher_' . uniqid() . '.' .
+        $request->file('image')->getClientOriginalExtension();
+
+    // Upload image to frontend/assets/teacher
+    $request->file('image')->move($imagePath, $filename);
+
+    // Save filename in database
+    $validated['image'] = $filename;
+}
 
         $validated['status'] = $request->has('status') ? 1 : 0;
 
@@ -85,13 +108,48 @@ class TeacherController extends Controller
 
         if ($request->hasFile('image')) {
 
-            if ($teacher->image) {
-                Storage::disk('public')->delete($teacher->image);
-            }
+        //     if ($teacher->image) {
+        //         Storage::disk('public')->delete($teacher->image);
+        //     }
 
-            $validated['image'] = $request->file('image')
-                ->store('teachers', 'public');
+        //     $validated['image'] = $request->file('image')
+        //         ->store('teachers', 'public');
+        // }
+
+
+if ($request->hasFile('image')) {
+
+    // Set upload folder
+    $imagePath = public_path('frontend/assets/teacher');
+
+    // Create folder if it doesn't exist
+    if (!is_dir($imagePath)) {
+        mkdir($imagePath, 0755, true);
+    }
+
+    // Delete old image if it exists
+    if ($teacher->image) {
+        $oldImage = $imagePath . '/' . basename($teacher->image);
+
+        if (is_file($oldImage)) {
+            unlink($oldImage);
         }
+    }
+
+    // Generate a unique filename
+    $filename = 'teacher_' . uniqid() . '.' .
+        $request->file('image')->getClientOriginalExtension();
+
+    // Upload new image
+    $request->file('image')->move($imagePath, $filename);
+
+    // Save filename in database
+    $validated['image'] = $filename;
+}
+
+
+        }
+
 
         $validated['status'] = $request->has('status') ? 1 : 0;
 

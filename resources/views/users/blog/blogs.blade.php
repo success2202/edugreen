@@ -191,7 +191,7 @@
 
                                         <a href="{{ route('user.blog.details', $blog->id) }}">
                                             <img
-                                                src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('frontend/assets/images/blog-post02.jpg') }}"
+                                                src="{{ asset('frontend/assets/about/' . $blog->image) }}"
                                                 alt="{{ $blog->title }}"
                                                 class="img-responsive"
                                             >
@@ -303,7 +303,7 @@
                                         <div class="news-thumb">
                                             <a href="{{ url('/blog/' . $recentBlog->id) }}">
                                                 <img
-                                                    src="{{ $recentBlog->image ? asset('storage/' . $recentBlog->image) : asset('frontend/assets/images/online-course/blog-thumb01.jpg') }}"
+                                                    src="{{ asset('frontend/assets/about/' . $recentBlog->image) }}"
                                                     alt="{{ $recentBlog->title }}"
                                                 >
                                             </a>
