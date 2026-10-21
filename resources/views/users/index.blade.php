@@ -2978,7 +2978,7 @@
                     <div class="why-school-line"></div>
 
                     <p>
-                        Edu Green Schools school is committed to providing quality education
+                        Edugreen Schools school is committed to providing quality education
                         in a caring, disciplined and stimulating environment.
                     </p>
 
@@ -3149,7 +3149,7 @@
 
                         <h2>
                             Welcome to
-                            <span>Edu Green Infant & Junior School</span>
+                            <span>Edugreen Infant & Junior School</span>
                         </h2>
 
                         <div class="principal-line"></div>
@@ -3255,7 +3255,7 @@
 
                         <div class="stat-number">
 
-                            <span class="counter" data-target="50">
+                            <span class="counter" data-target="15">
                                 0
                             </span>
 
@@ -3319,7 +3319,7 @@
 
                         <div class="stat-number">
 
-                            <span class="counter" data-target="15">
+                            <span class="counter" data-target="5">
                                 0
                             </span>
 
