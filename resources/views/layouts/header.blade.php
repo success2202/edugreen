@@ -111,7 +111,7 @@
 
                                 <a class="navbar-brand school-brand" href="{{ route('user.home') }}">
 
-                                    <img src="{{ asset('storage/' . $school->logo) }}"
+                                    <img src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($school->logo) }}"
                                         style="height: 50px; width: auto;" alt="EduGreen">
 
                                     <span class="school-name">
