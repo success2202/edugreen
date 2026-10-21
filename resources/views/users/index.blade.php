@@ -2628,7 +2628,7 @@
 
                     <h2 class="school-section-title">
                         Welcome to
-                        <span>Edu-Green Infant & Primary School</span>
+                        <span>Edugreen Infant & Primary School</span>
                     </h2>
 
                     <div class="section-line"></div>
