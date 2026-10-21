@@ -115,7 +115,7 @@
                                         style="height: 50px; width: auto;" alt="EduGreen">
 
                                     <span class="school-name">
-                                        EDU-GREEN SCHOOLS
+                                        EDUGREEN SCHOOLS
                                     </span>
 
                                 </a>
