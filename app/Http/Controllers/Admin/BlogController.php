@@ -53,7 +53,7 @@ class BlogController extends Controller
         if ($request->hasFile('image')) {
 
     // Set upload folder
-    $imagePath = public_path('frontend/assets/img/about');
+    $imagePath = public_path('backend/assets/about');
 
     // Create folder if it doesn't exist
     if (!is_dir($imagePath)) {
@@ -64,7 +64,7 @@ class BlogController extends Controller
     $filename = 'blog_' . uniqid() . '.' .
         $request->file('image')->getClientOriginalExtension();
 
-    // Upload image to frontend/assets/img/about
+    // Upload image to backend/assets/img/about
     $request->file('image')->move($imagePath, $filename);
 
     // Save filename in database
@@ -129,13 +129,13 @@ class BlogController extends Controller
         //     }
 
         //     $validated['image'] = $request->file('image')
-        //         ->store('blogs', 'public');
+        //         ->store('blogs', 'public'); 
         // }
 
 if ($request->hasFile('image')) {
 
     // Image upload folder
-    $imagePath = public_path('frontend/assets/img/about');
+    $imagePath = public_path('frontend/assets/about');
 
     // Create folder if it does not exist
     if (!is_dir($imagePath)) {
