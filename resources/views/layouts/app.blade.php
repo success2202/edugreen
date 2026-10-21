@@ -17,7 +17,7 @@
     @if($school?->favicon)
     <link rel="icon"
           type="image/png"
-          href="{{ asset('storage/' . $school->favicon) }}">
+          href="{{ asset('frontend/assets/img/logo/' . $school->favicon) }}">
 @endif
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/assets/bootstrap.min.css') }}">
