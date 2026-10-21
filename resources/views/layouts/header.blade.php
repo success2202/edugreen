@@ -113,7 +113,7 @@
 
                                     <img src="{{ asset('frontend/assets/img/logo/' . $school->logo) }}"
                                         style="height: 50px; width: auto;" alt="EduGreen">
-
+ 
                                         
                                     <span class="school-name">
                                         EDUGREEN SCHOOLS

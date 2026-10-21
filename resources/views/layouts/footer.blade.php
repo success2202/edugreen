@@ -14,7 +14,7 @@
 
                         <a href="{{ url('/') }}" class="footer-logo"> 
                             <img
-                                src="{{ asset('storage/' . $school->logo) }}"
+                                src="{{ asset('frontend/assets/img/logo/' . $school->logo) }}"
                                 alt="School Logo"
                             >
                         </a>
