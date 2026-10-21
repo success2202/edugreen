@@ -3958,7 +3958,7 @@
 
             </div>
 
-
+         
             <div class="row g-4">
 
                 {{-- NEWS 1 --}}
@@ -3969,7 +3969,7 @@
 
                             <div class="news-image">
 
-                                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}">
+                                <img src="{{ asset('frontend/assets/img/about/' . $item->image) }}" alt="{{ $item->title }}">
 
                                 <span class="news-category">
                                     {{ $item->category }}

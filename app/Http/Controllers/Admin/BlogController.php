@@ -45,10 +45,31 @@ class BlogController extends Controller
             $validated['slug'] = $originalSlug . '-' . $counter++;
         }
 
+        // if ($request->hasFile('image')) {
+        //     $validated['image'] = $request->file('image')
+        //         ->store('blogs', 'public');
+        // }
+
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')
-                ->store('blogs', 'public');
-        }
+
+    // Set upload folder
+    $imagePath = public_path('frontend/assets/img/about');
+
+    // Create folder if it doesn't exist
+    if (!is_dir($imagePath)) {
+        mkdir($imagePath, 0755, true);
+    }
+
+    // Generate a unique filename
+    $filename = 'blog_' . uniqid() . '.' .
+        $request->file('image')->getClientOriginalExtension();
+
+    // Upload image to frontend/assets/img/about
+    $request->file('image')->move($imagePath, $filename);
+
+    // Save filename in database
+    $validated['image'] = $filename;
+}
 
         $validated['status'] = $request->has('status') ? 1 : 0;
 
@@ -101,15 +122,46 @@ class BlogController extends Controller
             $validated['slug'] = $originalSlug . '-' . $counter++;
         }
 
-        if ($request->hasFile('image')) {
+        // if ($request->hasFile('image')) {
 
-            if ($blog->image) {
-                Storage::disk('public')->delete($blog->image);
-            }
+        //     if ($blog->image) {
+        //         Storage::disk('public')->delete($blog->image);
+        //     }
 
-            $validated['image'] = $request->file('image')
-                ->store('blogs', 'public');
+        //     $validated['image'] = $request->file('image')
+        //         ->store('blogs', 'public');
+        // }
+
+if ($request->hasFile('image')) {
+
+    // Image upload folder
+    $imagePath = public_path('frontend/assets/img/about');
+
+    // Create folder if it does not exist
+    if (!is_dir($imagePath)) {
+        mkdir($imagePath, 0755, true);
+    }
+
+    // Delete old image if it exists in this folder
+    if ($blog->image) {
+        $oldImage = $imagePath . '/' . basename($blog->image);
+
+        if (is_file($oldImage)) {
+            unlink($oldImage);
         }
+    }
+
+    // Generate a unique filename
+    $filename = 'blog_' . uniqid() . '.' .
+        $request->file('image')->getClientOriginalExtension();
+
+    // Upload image
+    $request->file('image')->move($imagePath, $filename);
+
+    // Save filename in database
+    $validated['image'] = $filename;
+}
+
 
         $validated['status'] = $request->has('status') ? 1 : 0;
 
