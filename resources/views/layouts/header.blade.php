@@ -111,7 +111,7 @@
 
                                 <a class="navbar-brand school-brand" href="{{ route('user.home') }}">
 
-                                    <img src="{{ asset('frontend/assets/img/logo.jpeg') }}"
+                                    <img src="{{ asset('frontend/assets/img/' . $school->logo) }}"
                                         style="height: 50px; width: auto;" alt="EduGreen">
 
                                         
