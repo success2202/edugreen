@@ -41,29 +41,71 @@ class GalleryController extends Controller
             'status' => 'nullable|boolean',
         ]);
 
-        $file = $request->file('media');
+        // $file = $request->file('media');
 
-        $extension = strtolower($file->getClientOriginalExtension());
+        // $extension = strtolower($file->getClientOriginalExtension());
 
-        $imageExtensions = [
-            'jpg',
-            'jpeg',
-            'png',
-            'webp',
-            'gif',
-        ];
+        // $imageExtensions = [
+        //     'jpg',
+        //     'jpeg',
+        //     'png',
+        //     'webp',
+        //     'gif',
+        // ];
 
-        if (in_array($extension, $imageExtensions)) {
-            $mediaType = 'image';
-        } else {
-            $mediaType = 'video';
-        }
+        // if (in_array($extension, $imageExtensions)) {
+        //     $mediaType = 'image';
+        // } else {
+        //     $mediaType = 'video';
+        // }
 
-        $validated['media'] = $file->store('gallery', 'public');
+        // $validated['media'] = $file->store('gallery', 'public');
 
-        $validated['media_type'] = $mediaType;
+        // $validated['media_type'] = $mediaType;
 
-        $validated['status'] = $request->has('status') ? 1 : 0;
+        // $validated['status'] = $request->has('status') ? 1 : 0;
+
+
+$file = $request->file('media');
+
+$extension = strtolower($file->getClientOriginalExtension());
+
+$imageExtensions = [
+    'jpg',
+    'jpeg',
+    'png',
+    'webp',
+    'gif',
+];
+
+if (in_array($extension, $imageExtensions)) {
+    $mediaType = 'image';
+} else {
+    $mediaType = 'video';
+}
+
+// Set upload folder
+$mediaPath = public_path('frontend/assets/gallery');
+
+// Create folder if it doesn't exist
+if (!is_dir($mediaPath)) {
+    mkdir($mediaPath, 0755, true);
+}
+
+// Generate unique filename
+$filename = 'gallery_' . uniqid() . '.' . $extension;
+
+// Upload image or video
+$file->move($mediaPath, $filename);
+
+// Save filename in database
+$validated['media'] = $filename;
+
+$validated['media_type'] = $mediaType;
+
+$validated['status'] = $request->has('status') ? 1 : 0;
+
+
 
         Gallery::create($validated);
 
@@ -107,40 +149,98 @@ class GalleryController extends Controller
             'status' => 'nullable|boolean',
         ]);
 
-        if ($request->hasFile('media')) {
+        // if ($request->hasFile('media')) {
 
-            // Delete old file
-            if ($gallery->media) {
-                Storage::disk('public')->delete($gallery->media);
-            }
+        //     // Delete old file
+        //     if ($gallery->media) {
+        //         Storage::disk('public')->delete($gallery->media);
+        //     }
 
-            $file = $request->file('media');
+        //     $file = $request->file('media');
 
-            $extension = strtolower(
-                $file->getClientOriginalExtension()
-            );
+        //     $extension = strtolower(
+        //         $file->getClientOriginalExtension()
+        //     );
 
-            $imageExtensions = [
-                'jpg',
-                'jpeg',
-                'png',
-                'webp',
-                'gif',
-            ];
+        //     $imageExtensions = [
+        //         'jpg',
+        //         'jpeg',
+        //         'png',
+        //         'webp',
+        //         'gif',
+        //     ];
 
-            if (in_array($extension, $imageExtensions)) {
-                $mediaType = 'image';
-            } else {
-                $mediaType = 'video';
-            }
+        //     if (in_array($extension, $imageExtensions)) {
+        //         $mediaType = 'image';
+        //     } else {
+        //         $mediaType = 'video';
+        //     }
 
-            $validated['media'] = $file->store(
-                'gallery',
-                'public'
-            );
+        //     $validated['media'] = $file->store(
+        //         'gallery',
+        //         'public'
+        //     );
 
-            $validated['media_type'] = $mediaType;
+        //     $validated['media_type'] = $mediaType;
+        // }
+
+
+
+
+        
+if ($request->hasFile('media')) {
+
+    // Set upload folder
+    $mediaPath = public_path('frontend/assets/gallery');
+
+    // Create folder if it doesn't exist
+    if (!is_dir($mediaPath)) {
+        mkdir($mediaPath, 0755, true);
+    }
+
+    // Delete old file if it exists
+    if ($gallery->media) {
+        $oldMedia = $mediaPath . '/' . basename($gallery->media);
+
+        if (is_file($oldMedia)) {
+            unlink($oldMedia);
         }
+    }
+
+    // Get uploaded file
+    $file = $request->file('media');
+
+    $extension = strtolower(
+        $file->getClientOriginalExtension()
+    );
+
+    // Supported image extensions
+    $imageExtensions = [
+        'jpg',
+        'jpeg',
+        'png',
+        'webp',
+        'gif',
+    ];
+
+    // Determine media type
+    if (in_array($extension, $imageExtensions)) {
+        $mediaType = 'image';
+    } else {
+        $mediaType = 'video';
+    }
+
+    // Generate unique filename
+    $filename = 'gallery_' . uniqid() . '.' . $extension;
+
+    // Upload image or video
+    $file->move($mediaPath, $filename);
+
+    // Save filename and media type
+    $validated['media'] = $filename;
+    $validated['media_type'] = $mediaType;
+}
+
 
         $validated['status'] = $request->has('status') ? 1 : 0;
 

@@ -269,7 +269,7 @@ BREADCRUMB — SAME AS BLOG DETAILS
 
             @if($event->image)
                 <img
-                    src="{{ asset('storage/' . $event->image) }}"
+                    src="{{ asset('frontend/assets/event/' . $event->image) }}"
                     alt="{{ $event->title }}"
                     class="event-details-image"
                 >

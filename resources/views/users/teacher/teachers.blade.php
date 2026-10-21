@@ -693,7 +693,7 @@
 
                             @if($teacher->image)
                                 <a href="{{ route('user.teacher.details', $teacher->id) }}">
-                                    <img src="{{ asset('storage/' . $teacher->image) }}"
+                                    <img src="{{ asset('frontend/assets/teacher/' . $teacher->image) }}"
                                          alt="{{ $teacher->name }}"
                                          class="img-responsive">
                                 </a>

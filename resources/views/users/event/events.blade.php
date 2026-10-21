@@ -214,7 +214,7 @@
 											<span>{{ \Carbon\Carbon::parse($event->event_date)->format('F, Y') }}</span>
 										</div>
 										<div class="col-sm-3 event-thumb">
-											<img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}" class="img-responsive">
+											<img src="{{ asset('frontend/assets/event/' . $event->image) }}" alt="{{ $event->title }}" class="img-responsive">
 										</div>
 										<div class="col-sm-7 event-info">
 											<h3>{{ $event->title }}</h3>

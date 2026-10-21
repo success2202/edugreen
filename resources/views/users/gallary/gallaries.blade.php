@@ -602,7 +602,7 @@
                                     class="gallery-video"
                                 >
                                     <source
-                                        src="{{ asset('storage/' . $gallery->media) }}"
+                                        src="{{ asset('frontend/assets/gallery/' . $gallery->media) }}"
                                         type="video/mp4"
                                     >
 
@@ -614,7 +614,7 @@
                             @else
 
                                 <img
-                                    src="{{ asset('storage/' . $gallery->media) }}"
+                                    src="{{ asset('frontend/assets/gallery/' . $gallery->media) }}"
                                     alt="{{ $gallery->title ?? 'EduGreen School Gallery' }}"
                                     class="img-responsive"
                                 >

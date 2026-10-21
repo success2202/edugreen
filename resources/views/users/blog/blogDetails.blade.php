@@ -473,7 +473,7 @@ SMALL MOBILE
         <div class="blog-details-image">
 
             <img
-                src="{{ asset('frontend/assets/teacher/' . $blog->image) }}"
+                src="{{ asset('frontend/assets/blog/' . $blog->image) }}"
                 alt="{{ $blog->title }}"
             >
 

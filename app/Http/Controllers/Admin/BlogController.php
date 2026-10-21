@@ -53,7 +53,7 @@ class BlogController extends Controller
         if ($request->hasFile('image')) {
 
     // Set upload folder
-    $imagePath = public_path('backend/assets/about');
+    $imagePath = public_path('backend/assets/blog');
 
     // Create folder if it doesn't exist
     if (!is_dir($imagePath)) {
@@ -135,7 +135,7 @@ class BlogController extends Controller
 if ($request->hasFile('image')) {
 
     // Image upload folder
-    $imagePath = public_path('frontend/assets/about');
+    $imagePath = public_path('frontend/assets/blog');
 
     // Create folder if it does not exist
     if (!is_dir($imagePath)) {

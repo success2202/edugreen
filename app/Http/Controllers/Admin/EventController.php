@@ -35,10 +35,33 @@ class EventController extends Controller
             'status' => 'nullable|boolean',
         ]);
 
-        if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')
-                ->store('events', 'public');
-        }
+        // if ($request->hasFile('image')) {
+        //     $validated['image'] = $request->file('image')
+        //         ->store('events', 'public');
+        // }
+
+if ($request->hasFile('image')) {
+
+    // Set upload folder
+    $imagePath = public_path('frontend/assets/event');
+
+    // Create folder if it doesn't exist
+    if (!is_dir($imagePath)) {
+        mkdir($imagePath, 0755, true);
+    }
+
+    // Generate a unique filename
+    $filename = 'event_' . uniqid() . '.' .
+        $request->file('image')->getClientOriginalExtension();
+
+    // Upload image
+    $request->file('image')->move($imagePath, $filename);
+
+    // Save filename in database
+    $validated['image'] = $filename;
+}
+
+
 
         $validated['status'] = $request->has('status') ? 1 : 0;
 
@@ -77,15 +100,49 @@ class EventController extends Controller
             'status' => 'nullable|boolean',
         ]);
 
-        if ($request->hasFile('image')) {
+        // if ($request->hasFile('image')) {
 
-            if ($event->image) {
-                Storage::disk('public')->delete($event->image);
-            }
+        //     if ($event->image) {
+        //         Storage::disk('public')->delete($event->image);
+        //     }
 
-            $validated['image'] = $request->file('image')
-                ->store('events', 'public');
+        //     $validated['image'] = $request->file('image')
+        //         ->store('events', 'public');
+        // }
+
+
+
+if ($request->hasFile('image')) {
+
+    // Set upload folder
+    $imagePath = public_path('frontend/assets/event');
+
+    // Create folder if it doesn't exist
+    if (!is_dir($imagePath)) {
+        mkdir($imagePath, 0755, true);
+    }
+
+    // Delete old image if it exists
+    if ($event->image) {
+        $oldImage = $imagePath . '/' . basename($event->image);
+
+        if (is_file($oldImage)) {
+            unlink($oldImage);
         }
+    }
+
+    // Generate a unique filename
+    $filename = 'event_' . uniqid() . '.' .
+        $request->file('image')->getClientOriginalExtension();
+
+    // Upload new image
+    $request->file('image')->move($imagePath, $filename);
+
+    // Save filename in database
+    $validated['image'] = $filename;
+}
+
+
 
         $validated['status'] = $request->has('status') ? 1 : 0;
 
