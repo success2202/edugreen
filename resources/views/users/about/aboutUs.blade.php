@@ -582,6 +582,349 @@
                 justify-content: center;
             }
         }
+
+
+
+
+
+/* =========================================
+   EDU GREEN SCHOOL - CORE VALUES
+========================================= */
+
+
+/* Mobile: 2 cards per row */
+@media (max-width: 575px) {
+    .edu-values-section .row > div {
+        width: 50% !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+    .edu-values-section .edu-value-card {
+        height: 100%;
+        min-height: 215px;
+        padding: 16px 12px 28px;
+    }
+
+    .edu-values-section .edu-value-card h3 {
+        font-size: 15px;
+    }
+
+    .edu-values-section .edu-value-card p {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+}
+
+
+
+
+
+.edu-values-section {
+    padding: 85px 0;
+    background: #f7faf7;
+    overflow: hidden;
+}
+
+/* Section heading */
+.edu-values-section .edu-section-heading {
+    max-width: 680px;
+    margin: 0 auto 35px;
+}
+
+.edu-values-section .edu-section-label {
+    display: inline-block;
+    color: #21834a;
+    background: #e5f4e9;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.edu-values-section .edu-section-heading h2 {
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 800;
+    color: #173b2b;
+    margin-bottom: 14px;
+}
+
+.edu-values-section .edu-section-heading h2 span {
+    color: #258b4d;
+}
+
+.edu-values-section .edu-section-heading p {
+    color: #6b786f;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* Values card */
+.edu-values-section .edu-value-card {
+    position: relative;
+    height: 100%;
+    min-height: 235px;
+    padding: 25px 20px 30px;
+    background: #ffffff;
+    border: 1px solid #e7eee8;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(24, 66, 40, 0.045);
+    overflow: hidden;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+/* Small green accent */
+.edu-values-section .edu-value-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 42px;
+    height: 3px;
+    background: #2a9655;
+    transition: width 0.3s ease;
+}
+
+.edu-values-section .edu-value-card:hover {
+    transform: translateY(-5px);
+    border-color: #c8e5d0;
+    box-shadow: 0 12px 30px rgba(24, 66, 40, 0.10);
+}
+
+.edu-values-section .edu-value-card:hover::before {
+    width: 100%;
+}
+
+/* Icon */
+.edu-values-section .edu-value-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background: #eaf6ed;
+    color: #258b4d;
+    font-size: 27px;
+    transition: background 0.3s ease,
+                color 0.3s ease;
+}
+
+.edu-values-section .edu-value-card:hover .edu-value-icon {
+    background: #258b4d;
+    color: #ffffff;
+}
+
+/* Card text */
+.edu-values-section .edu-value-card h3 {
+    color: #183d2b;
+    font-size: 19px;
+    font-weight: 750;
+    margin: 0 0 11px;
+}
+
+.edu-values-section .edu-value-card p {
+    color: #6d786f;
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Decorative number */
+.edu-values-section .edu-value-number {
+    position: absolute;
+    right: 14px;
+    bottom: 5px;
+    color: #edf3ee;
+    font-size: 35px;
+    line-height: 1;
+    font-weight: 800;
+    pointer-events: none;
+}
+
+/* Desktop: exactly 4 cards per row */
+
+
+/* Tablet */
+@media (min-width: 576px) and (max-width: 991px) {
+    .edu-values-section {
+        padding: 65px 0;
+    }
+
+    .edu-values-section .edu-value-card {
+        min-height: 225px;
+    }
+}
+
+/* Mobile: exactly 2 cards per row */
+
+
+/* Very narrow phones */
+@media (max-width: 360px) {
+    .edu-values-section .edu-value-card {
+        padding: 14px 10px 25px;
+        min-height: 220px;
+    }
+
+    .edu-values-section .edu-value-card h3 {
+        font-size: 14px;
+    }
+
+    .edu-values-section .edu-value-card p {
+        font-size: 10px;
+    }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .edu-values-section .edu-value-card,
+    .edu-values-section .edu-value-icon,
+    .edu-values-section .edu-value-card::before {
+        transition: none;
+    }
+}
+
+
+
+
+/* FIX: EDU VALUES RESPONSIVE GRID */
+
+/* Desktop: 4 cards per row */
+@media (min-width: 992px) {
+    .edu-values-section .row.g-4.mt-4 > div {
+        flex: 0 0 25% !important;
+        width: 25% !important;
+        max-width: 25% !important;
+    }
+}
+
+/* Tablet: 2 cards per row */
+@media (min-width: 576px) and (max-width: 991px) {
+    .edu-values-section .row.g-4.mt-4 > div {
+        flex: 0 0 50% !important;
+        width: 50% !important;
+        max-width: 50% !important;
+    }
+}
+
+/* Mobile: 2 cards per row */
+@media (max-width: 575px) {
+    .edu-values-section .row.g-4.mt-4 {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-left: -6px !important;
+        margin-right: -6px !important;
+    }
+
+    .edu-values-section .row.g-4.mt-4 > div {
+        display: block !important;
+        flex: 0 0 50% !important;
+        width: 50% !important;
+        max-width: 50% !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+        margin-top: 12px !important;
+    }
+
+    .edu-values-section .edu-value-card {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 215px;
+        box-sizing: border-box;
+        padding: 16px 12px 28px;
+    }
+
+    .edu-values-section .edu-value-card h3 {
+        font-size: 15px;
+    }
+
+    .edu-values-section .edu-value-card p {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+}
+
+
+
+/* Core Values - Stable Responsive Layout */
+
+.edu-values-section .row.g-4.mt-4 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.edu-values-section .row.g-4.mt-4 > [class*="col-"] {
+    display: flex;
+    margin-top: 0;
+}
+
+.edu-values-section .edu-value-card {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Desktop: 4 cards per row */
+@media (min-width: 992px) {
+    .edu-values-section .row.g-4.mt-4 > [class*="col-"] {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+/* Tablet: 2 cards per row */
+@media (min-width: 576px) and (max-width: 991px) {
+    .edu-values-section .row.g-4.mt-4 > [class*="col-"] {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* Mobile: 2 cards per row */
+@media (max-width: 575px) {
+    .edu-values-section .row.g-4.mt-4 {
+        --bs-gutter-x: 12px;
+        --bs-gutter-y: 12px;
+    }
+
+    .edu-values-section .row.g-4.mt-4 > [class*="col-"] {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .edu-values-section .edu-value-card {
+        min-height: 215px;
+        padding: 16px 12px 28px;
+        border-radius: 11px;
+    }
+
+    .edu-values-section .edu-value-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .edu-values-section .edu-value-card h3 {
+        font-size: 15px;
+    }
+
+    .edu-values-section .edu-value-card p {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+}
+
+
     </style>
 @endsection
 @section('content')
@@ -608,7 +951,7 @@
                 <div class="school-breadcrumb-line"></div>
 
                 <p>
-                    About Edu Green Infant & Primary School, our mission, vision and core values that guide our approach to education and child development.
+                    About Edugreen Infant & Junior School, our mission, vision and core values that guide our approach to education and child development.
                 </p>
 
                 <nav aria-label="breadcrumb">
@@ -657,7 +1000,7 @@
                 <div class="row align-items-center g-5"> {{-- IMAGE --}} <div class="col-lg-6">
                         <div class="edu-about-image-area">
                             <div class="edu-about-main-image">  <img
-                            src="{{ !empty($about?->image) ? asset('storage/' . $about->image) : asset('frontend/assets/img/about.jpeg') }}"
+                            src="{{ asset($about->image)}}"
                             alt="Students learning at Edu Green School"> </div>
                             <div class="edu-about-floating-card">
                                 <div class="edu-floating-icon"> <i class="ti ti-school"></i> </div>
@@ -718,7 +1061,11 @@
                     </div>
                 </div>
             </div>
-        </section> {{-- CORE VALUES --}} <section class="edu-values-section">
+        </section> 
+        
+        
+        {{-- CORE VALUES --}} 
+        {{-- <section class="edu-values-section">
             <div class="container">
                 <div class="edu-section-heading text-center"> <span class="edu-section-label">WHAT WE STAND FOR</span>
                     <h2> Our Core <span>Values</span> </h2>
@@ -728,8 +1075,8 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="edu-value-card">
                             <div class="edu-value-icon"> <i class="ti ti-heart-handshake"></i> </div>
-                            <h3>Care</h3>
-                            <p> We create a warm and supportive environment where every child feels valued and respected.
+                            <h3>Purpose</h3>
+                            <p> We are driven by a sense of determination and firmness in everything we resolve to achieve.
                             </p>
                         </div>
                     </div>
@@ -737,26 +1084,156 @@
                         <div class="edu-value-card">
                             <div class="edu-value-icon"> <i class="ti ti-bulb"></i> </div>
                             <h3>Curiosity</h3>
-                            <p> We encourage children to ask questions, explore ideas and develop a lifelong love for
-                                learning. </p>
+                            <p>  We cultivate and celebrate the desire to know, to ask questions, to re-examine, to take action, and to improve. </p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="edu-value-card">
                             <div class="edu-value-icon"> <i class="ti ti-award"></i> </div>
                             <h3>Excellence</h3>
-                            <p> We encourage every child to give their best and continually develop their abilities. </p>
+                            <p> We embrace the highest standards of knowledge, performance, and character. 
+                            We strive for the best in everything we do, starting with a drive for 
+                            professionalism in all efforts. </p>
                         </div>
                     </div>
+
+
+
+                <div class="col-lg-3 col-md-6">
+                        <div class="edu-value-card">
+                            <div class="edu-value-icon"> <i class="ti ti-shield-check"></i> </div>
+                            <h3>Responsibility</h3>
+                            <p> We act honorably and are committed to our individual community members, 
+                            and hold ourselves accountable for our words and actions. </p>
+                        </div>
+                    </div>
+
+
+
+
                     <div class="col-lg-3 col-md-6">
                         <div class="edu-value-card">
                             <div class="edu-value-icon"> <i class="ti ti-shield-check"></i> </div>
                             <h3>Integrity</h3>
-                            <p> We teach honesty, responsibility, respect and strong character from an early age. </p>
+                            <p> We always do what is right without compromising our values, even if it is difficult and no one is looking </p>
                         </div>
                     </div>
+
+                    
                 </div>
             </div>
       
-    </section>
+    </section> --}}
+
+
+<section class="edu-values-section">
+    <div class="container">
+
+        <div class="edu-section-heading text-center">
+            <span class="edu-section-label">WHAT WE STAND FOR</span>
+            <h2>Our Core <span>Values</span></h2>
+            <p>
+                The principles that guide how we teach, support
+                and inspire every child at Edu Green School.
+            </p>
+        </div>
+
+        <div class="row g-4 mt-4">
+
+            <!-- Purpose -->
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="edu-value-card">
+                    <div class="edu-value-icon">
+                        <i class="ti ti-heart-handshake"></i>
+                    </div>
+                    <h3>Purpose</h3>
+                    <p>
+                        We are driven by a sense of determination and firmness in everything we resolve to achieve.
+                    </p>
+                    <span class="edu-value-number">01</span>
+                </div>
+            </div>
+
+            <!-- Curiosity -->
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="edu-value-card">
+                    <div class="edu-value-icon">
+                        <i class="ti ti-bulb"></i>
+                    </div>
+                    <h3>Curiosity</h3>
+                    <p>
+                        We cultivate and celebrate the desire to know, 
+                        to ask questions, to re-examine, to take action, and to improve
+                    </p>
+                    <span class="edu-value-number">02</span>
+                </div>
+            </div>
+
+            <!-- Excellence -->
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="edu-value-card">
+                    <div class="edu-value-icon">
+                        <i class="ti ti-award"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>
+                        We embrace the highest standards of knowledge, performance, 
+                        and character. We strive for the best in everything we do, starting with a drive for professionalism in all efforts.
+                    </p>
+                    <span class="edu-value-number">03</span>
+                </div>
+            </div>
+
+
+
+             <!-- Goodness -->
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="edu-value-card">
+                    <div class="edu-value-icon">
+                        <i class="ti ti-award"></i>
+                    </div>
+                    <h3>Goodness</h3>
+                    <p>
+                         We are devout and morally upright in all
+                          our dealings, conforming to the precepts and wishes of the one and only true God.
+                    </p>
+                    <span class="edu-value-number">03</span>
+                </div>
+            </div>
+
+
+
+            <!-- Responsibility -->
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="edu-value-card">
+                    <div class="edu-value-icon">
+                        <i class="ti ti-shield-check"></i>
+                    </div>
+                    <h3>Responsibility</h3>
+                    <p>
+                        We act honorably and are committed to our individual community members, 
+                        and hold ourselves accountable for our words and actions.
+                    </p>
+                    <span class="edu-value-number">04</span>
+                </div>
+            </div>
+
+            <!-- Integrity -->
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="edu-value-card">
+                    <div class="edu-value-icon">
+                        <i class="ti ti-checkup-list"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>
+                         We always do what is right without compromising our values, even if it is difficult and no one is looking
+                    </p>
+                    <span class="edu-value-number">05</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 @endsection

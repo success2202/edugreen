@@ -41,10 +41,23 @@ class AboutPageController extends Controller
             'image'   => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
+        // if ($request->hasFile('image')) {
+        //     $validated['image'] = $request->file('image')
+        //         ->store('about', 'public');
+        // }
+
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')
-                ->store('about', 'public');
-        }
+    $image = $request->file('image');
+
+    // Generate a unique filename
+    $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+
+    // Save image to public/frontend/assets/about
+    $image->move(public_path('frontend/assets/about'), $imageName);
+
+    // Save image path in the database
+    $validated['image'] = 'frontend/assets/about/' . $imageName;
+}
 
         AboutPage::create($validated);
 
@@ -72,15 +85,33 @@ class AboutPageController extends Controller
             'image'   => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
+        // if ($request->hasFile('image')) {
+        //     $newImage = $request->file('image')->store('about', 'public');
+
+        //     if ($about->image) {
+        //         Storage::disk('public')->delete($about->image);
+        //     }
+
+        //     $validated['image'] = $newImage;
+        // }
+
         if ($request->hasFile('image')) {
-            $newImage = $request->file('image')->store('about', 'public');
+    $image = $request->file('image');
 
-            if ($about->image) {
-                Storage::disk('public')->delete($about->image);
-            }
+    // Generate a unique filename
+    $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
 
-            $validated['image'] = $newImage;
-        }
+    // Save directly to public/frontend/assets/about
+    $image->move(public_path('frontend/assets/about'), $imageName);
+
+    // Delete the previous image if it exists
+    if ($about->image && file_exists(public_path($about->image))) {
+        unlink(public_path($about->image));
+    }
+
+    // Save the relative path in the database
+    $validated['image'] = 'frontend/assets/about/' . $imageName;
+}
 
         $about->update($validated);
 

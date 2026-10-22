@@ -2466,6 +2466,326 @@
 
 }
 
+
+
+/* ================= SECTION ================= */
+
+.eg-testimonials {
+    --eg-green: #187447;
+    --eg-dark: #123d2b;
+    --eg-light: #f4f8f4;
+    --eg-gold: #f5b82e;
+
+    padding: 85px 0;
+    background: linear-gradient(180deg, #f5f9f5 0%, #ffffff 100%);
+    overflow: hidden;
+}
+
+.eg-testimonials .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.eg-testimonials-heading {
+    max-width: 720px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.eg-section-tag {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: var(--eg-green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.eg-testimonials-heading h2 {
+    margin: 0 0 16px;
+    color: var(--eg-dark);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.eg-testimonials-heading p {
+    max-width: 590px;
+    margin: 0 auto;
+    color: #68756d;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* ================= CAROUSEL ================= */
+
+.eg-testimonial-viewport {
+    overflow: hidden;
+    touch-action: pan-y;
+    cursor: grab;
+}
+
+.eg-testimonial-viewport.eg-dragging {
+    cursor: grabbing;
+    user-select: none;
+}
+
+.eg-testimonial-track {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+    transition: transform 0.55s cubic-bezier(.22, .61, .36, 1);
+    will-change: transform;
+}
+
+.eg-testimonial-card {
+    flex: 0 0 calc((100% - 48px) / 3);
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 26px;
+    background: #ffffff;
+    border: 1px solid #e7eee8;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(20, 65, 40, 0.055);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.eg-testimonial-card:hover {
+    border-color: #c7dfce;
+    box-shadow: 0 14px 34px rgba(20, 65, 40, 0.10);
+}
+
+.eg-testimonial-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.eg-quote-icon {
+    color: var(--eg-green);
+    font-family: Georgia, serif;
+    font-size: 58px;
+    font-weight: bold;
+    line-height: 0.8;
+}
+
+.eg-stars {
+    color: var(--eg-gold);
+    font-size: 15px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.eg-testimonial-text {
+    flex: 1;
+    margin: 0 0 28px;
+    color: #58665d;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.eg-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding-top: 20px;
+    border-top: 1px solid #edf1ed;
+}
+
+.eg-author-avatar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #dcefe2;
+    color: #17663e;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.eg-avatar-gold {
+    background: #fff0ce;
+    color: #936a10;
+}
+
+.eg-avatar-blue {
+    background: #dceafa;
+    color: #285b91;
+}
+
+.eg-avatar-purple {
+    background: #ece2fb;
+    color: #7047a0;
+}
+
+.eg-avatar-pink {
+    background: #fbe2e9;
+    color: #a13b5b;
+}
+
+.eg-testimonial-author h3 {
+    margin: 0 0 5px;
+    color: #203d2c;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.eg-testimonial-author div:nth-child(2) span {
+    color: #89948c;
+    font-size: 12px;
+}
+
+.eg-verified {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    margin-left: auto;
+    border-radius: 50%;
+    background: var(--eg-green);
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* ================= CONTROLS ================= */
+
+.eg-testimonial-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    margin-top: 36px;
+}
+
+.eg-slider-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #dce8de;
+    border-radius: 50%;
+    background: #ffffff;
+    color: var(--eg-green);
+    font-size: 21px;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.eg-slider-btn:hover:not(:disabled) {
+    background: var(--eg-green);
+    border-color: var(--eg-green);
+    color: #ffffff;
+}
+
+.eg-slider-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.eg-slider-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.eg-slider-dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 50px;
+    background: #cbd8cd;
+    cursor: pointer;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+.eg-slider-dot.is-active {
+    width: 26px;
+    background: var(--eg-green);
+}
+
+.eg-slider-status {
+    margin-top: 12px;
+    color: #7b887e;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 991px) {
+    .eg-testimonials {
+        padding: 70px 0;
+    }
+
+    .eg-testimonial-card {
+        flex-basis: calc((100% - 24px) / 2);
+    }
+}
+
+@media (max-width: 575px) {
+    .eg-testimonials {
+        padding: 55px 0;
+    }
+
+    .eg-testimonials-heading {
+        margin-bottom: 32px;
+    }
+
+    .eg-testimonials-heading p {
+        font-size: 14px;
+    }
+
+    .eg-testimonial-track {
+        gap: 16px;
+    }
+
+    .eg-testimonial-card {
+        flex-basis: 100%;
+        padding: 25px 22px;
+    }
+
+    .eg-testimonial-controls {
+        gap: 17px;
+        margin-top: 28px;
+    }
+
+    .eg-slider-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .eg-testimonial-track,
+    .eg-testimonial-card,
+    .eg-slider-btn,
+    .eg-slider-dot {
+        transition: none !important;
+    }
+}
+
+
+
+
+
     </style>
 @endsection
 
@@ -2628,7 +2948,7 @@
 
                     <h2 class="school-section-title">
                         Welcome to
-                        <span>Edugreen Infant & Primary School</span>
+                        <span>Edugreen Infant & Junior School</span>
                     </h2>
 
                     <div class="section-line"></div>
@@ -2978,7 +3298,7 @@
                     <div class="why-school-line"></div>
 
                     <p>
-                        Edugreen Schools school is committed to providing quality education
+                        Edugreen Schools is committed to providing quality education
                         in a caring, disciplined and stimulating environment.
                     </p>
 
@@ -3008,7 +3328,7 @@
 
                             <div class="why-school-image">
                                 <img
-                                    src="{{ asset('frontend/assets/img/g11.jpeg') }}"
+                                    src="{{ asset('frontend/assets/img/qlt.jpeg') }}"
                                     alt="Quality Education"
                                     loading="lazy"
                                 >
@@ -3033,7 +3353,7 @@
 
                             <div class="why-school-image">
                                 <img
-                                    src="{{ asset('frontend/assets/img/g22.jpeg') }}"
+                                    src="{{ asset('frontend/assets/img/teacher.jpeg') }}"
                                     alt="Qualified Teachers"
                                     loading="lazy"
                                 >
@@ -3083,7 +3403,7 @@
 
                             <div class="why-school-image">
                                 <img
-                                    src="{{ asset('frontend/assets/img/g44.jpeg') }}"
+                                    src="{{ asset('frontend/assets/img/env.jpeg') }}"
                                     alt="Safe School Environment"
                                     loading="lazy"
                                 >
@@ -3350,7 +3670,7 @@
         <div class="edu-marquee-wrapper">
             <div class="edu-marquee-track">
                 {{-- FIRST SET --}}
-                <div class="edu-marquee-item"> <i class="ti ti-school"></i> <span>Welcome to Edu Green Infant & Primary
+                <div class="edu-marquee-item"> <i class="ti ti-school"></i> <span>Welcome to Edugreen Infant & junior
                         School</span>
                 </div>
                 <div class="edu-marquee-dot"></div>
@@ -3414,7 +3734,7 @@
 
                         <div class="facility-image">
 
-                            <img src="https://images.openai.com/static-rsc-4/XEkbLR6eJxvS9LiDRuiqtrLC7R9ejgDYCNhH_BkICNH6jRww8TFYJXr0W7hqDWWKMNE0qcPTPVS_g9p7oFmGP0hkIFdhBSeB_M5CbYxksPWcbIdkyz1AKRvlGBjpiXdEzmBGhMGc6HT1lgMNUEFaLw2qdjRFFd05sfHtiRPude4?purpose=inline"
+                            <img src="{{ asset('frontend/assets/img/library.jpeg') }}"
                                 alt="School Library">
 
                         </div>
@@ -3444,7 +3764,7 @@
 
                         <div class="facility-image">
 
-                            <img src="https://www.readinggirlsschool.co.uk/_site/data/files/images/D945FA396512C16D477078A2756C1CB3.jpg"
+                            <img src="{{ asset('frontend/assets/img/computerlab.jpeg') }}"
                                 alt="Computer Laboratory">
 
                         </div>
@@ -3474,7 +3794,7 @@
 
                         <div class="facility-image">
 
-                            <img src="https://parenting.etonhouse.edu.sg/hubfs/Copy%20of%20IMG_9390-3.jpg"
+                            <img src="{{ asset('frontend/assets/img/lab.jpeg') }}"
                                 alt="Science Laboratory">
 
                         </div>
@@ -3504,7 +3824,7 @@
 
                         <div class="facility-image">
 
-                            <img src="https://assets-global.website-files.com/6374a86e6d81a837a7564a87/6374a86e6d81a859a3564f57__SJP1469.jpg"
+                            <img src="{{ asset('frontend/assets/img/sport.jpeg') }}"
                                 alt="Sports Facilities">
 
                         </div>
@@ -3534,7 +3854,7 @@
 
                         <div class="facility-image">
 
-                            <img src="https://www.putai.org/TC2/upload/Admin/images/17.jpg" alt="Modern Classroom">
+                            <img src="{{ asset('frontend/assets/img/classroom.jpeg') }}" alt="Modern Classroom">
 
                         </div>
 
@@ -3563,7 +3883,7 @@
 
                         <div class="facility-image">
 
-                            <img src="https://hormisdallenschools.com/images/play-time.jpg" alt="School Playground">
+                            <img src="{{ asset('frontend/assets/img/playground.jpeg') }}" alt="School Playground">
 
                         </div>
 
@@ -3593,7 +3913,7 @@
     <!-- =========================================
              ADMISSION PROCESS
         ========================================= -->
-    <section class="school-admission-section">
+    {{-- <section class="school-admission-section">
 
         <div class="container">
 
@@ -3721,7 +4041,201 @@
 
         </div>
 
-    </section>
+    </section> --}}
+
+
+
+    
+<!-- ================= EDU GREEN TESTIMONIALS SECTION ================= -->
+<section class="eg-testimonials" id="testimonials">
+    <div class="container">
+
+        <div class="eg-testimonials-heading">
+            <span class="eg-section-tag">WHAT OUR COMMUNITY SAYS</span>
+            <h2>Trusted by Parents, Loved by Students</h2>
+            <p>
+                Discover what parents and students say about their experience
+                at EduGreen Schools.
+            </p>
+        </div>
+
+        <div class="eg-testimonial-carousel">
+
+            <div class="eg-testimonial-viewport">
+                <div class="eg-testimonial-track">
+
+                    <!-- Testimonial 1 -->
+                    <article class="eg-testimonial-card">
+                        <div class="eg-testimonial-top">
+                            <span class="eg-quote-icon">&ldquo;</span>
+                            <div class="eg-stars" aria-label="5 out of 5 stars">
+                                ★★★★★
+                            </div>
+                        </div>
+
+                        <p class="eg-testimonial-text">
+                            EduGreen Schools has made a remarkable difference
+                            in my child's learning. The teachers are patient,
+                            supportive, and committed to helping every child
+                            reach their potential.
+                        </p>
+
+                        <div class="eg-testimonial-author">
+                            <div class="eg-author-avatar">AO</div>
+                            <div>
+                                <h3>Amaka Okafor</h3>
+                                <span>Parent</span>
+                            </div>
+                            <span class="eg-verified" title="School community">
+                                ✓
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- Testimonial 2 -->
+                    <article class="eg-testimonial-card">
+                        <div class="eg-testimonial-top">
+                            <span class="eg-quote-icon">&ldquo;</span>
+                            <div class="eg-stars" aria-label="5 out of 5 stars">
+                                ★★★★★
+                            </div>
+                        </div>
+
+                        <p class="eg-testimonial-text">
+                            I enjoy learning at EduGreen because lessons are
+                            interesting and interactive. My teachers encourage
+                            me to ask questions, explore ideas, and believe
+                            in myself.
+                        </p>
+
+                        <div class="eg-testimonial-author">
+                            <div class="eg-author-avatar eg-avatar-gold">CE</div>
+                            <div>
+                                <h3>Chinedu Eze</h3>
+                                <span>Student</span>
+                            </div>
+                            <span class="eg-verified" title="School community">
+                                ✓
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- Testimonial 3 -->
+                    <article class="eg-testimonial-card">
+                        <div class="eg-testimonial-top">
+                            <span class="eg-quote-icon">&ldquo;</span>
+                            <div class="eg-stars" aria-label="5 out of 5 stars">
+                                ★★★★★
+                            </div>
+                        </div>
+
+                        <p class="eg-testimonial-text">
+                            What I appreciate most is the communication between
+                            the school and parents. I feel informed, involved,
+                            and confident that my child's education and
+                            well-being matter.
+                        </p>
+
+                        <div class="eg-testimonial-author">
+                            <div class="eg-author-avatar eg-avatar-blue">GO</div>
+                            <div>
+                                <h3>Grace Obi</h3>
+                                <span>Parent</span>
+                            </div>
+                            <span class="eg-verified" title="School community">
+                                ✓
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- Testimonial 4 -->
+                    <article class="eg-testimonial-card">
+                        <div class="eg-testimonial-top">
+                            <span class="eg-quote-icon">&ldquo;</span>
+                            <div class="eg-stars" aria-label="5 out of 5 stars">
+                                ★★★★★
+                            </div>
+                        </div>
+
+                        <p class="eg-testimonial-text">
+                            The school encourages discipline, creativity, and
+                            confidence. I have seen positive changes in my
+                            child's attitude towards learning and personal
+                            development.
+                        </p>
+
+                        <div class="eg-testimonial-author">
+                            <div class="eg-author-avatar eg-avatar-purple">EO</div>
+                            <div>
+                                <h3>Emeka Okoro</h3>
+                                <span>Parent</span>
+                            </div>
+                            <span class="eg-verified" title="School community">
+                                ✓
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- Testimonial 5 -->
+                    <article class="eg-testimonial-card">
+                        <div class="eg-testimonial-top">
+                            <span class="eg-quote-icon">&ldquo;</span>
+                            <div class="eg-stars" aria-label="5 out of 5 stars">
+                                ★★★★★
+                            </div>
+                        </div>
+
+                        <p class="eg-testimonial-text">
+                            EduGreen has helped me become more confident in
+                            class and more willing to try new things. I am
+                            grateful for the encouragement and support I
+                            receive from my teachers.
+                        </p>
+
+                        <div class="eg-testimonial-author">
+                            <div class="eg-author-avatar eg-avatar-pink">TA</div>
+                            <div>
+                                <h3>Temi Adewale</h3>
+                                <span>Student</span>
+                            </div>
+                            <span class="eg-verified" title="School community">
+                                ✓
+                            </span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <!-- Carousel controls -->
+            <div class="eg-testimonial-controls">
+                <button type="button"
+                        class="eg-slider-btn eg-prev"
+                        aria-label="Previous testimonials">
+                    &#8592;
+                </button>
+
+                <div class="eg-slider-dots"
+                     aria-label="Choose testimonial slide"></div>
+
+                <button type="button"
+                        class="eg-slider-btn eg-next"
+                        aria-label="Next testimonials">
+                    &#8594;
+                </button>
+            </div>
+
+            <div class="eg-slider-status" aria-live="polite"></div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- ================= END EDU GREEN TESTIMONIALS ================= -->
+
 
 
 
@@ -4011,4 +4525,164 @@
     </section>
 
     <!-- ends: .blog -->
+@endsection
+
+@section('scripts')
+<script>
+(function () {
+    function initEduGreenTestimonials() {
+        const sections = document.querySelectorAll(
+            '.eg-testimonials:not([data-eg-initialized])'
+        );
+
+        sections.forEach(function (section) {
+            section.dataset.egInitialized = 'true';
+
+            const viewport = section.querySelector(
+                '.eg-testimonial-viewport'
+            );
+            const track = section.querySelector('.eg-testimonial-track');
+            const cards = Array.from(
+                section.querySelectorAll('.eg-testimonial-card')
+            );
+            const prev = section.querySelector('.eg-prev');
+            const next = section.querySelector('.eg-next');
+            const dotsContainer = section.querySelector('.eg-slider-dots');
+            const status = section.querySelector('.eg-slider-status');
+
+            if (!viewport || !track || cards.length === 0) return;
+
+            let index = 0;
+            let visible = 3;
+            let maxIndex = 0;
+            let startX = 0;
+            let startY = 0;
+            let dragging = false;
+
+            function getVisibleCount() {
+                if (window.innerWidth <= 575) return 1;
+                if (window.innerWidth <= 991) return 2;
+                return 3;
+            }
+
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+
+                for (let i = 0; i <= maxIndex; i++) {
+                    const dot = document.createElement('button');
+
+                    dot.type = 'button';
+                    dot.className = 'eg-slider-dot';
+                    dot.setAttribute('aria-label', 'Go to testimonial slide ' + (i + 1));
+
+                    dot.addEventListener('click', function () {
+                        index = i;
+                        updateSlider();
+                    });
+
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function updateSlider() {
+                visible = getVisibleCount();
+                maxIndex = Math.max(0, cards.length - visible);
+                index = Math.min(Math.max(index, 0), maxIndex);
+
+                const cardWidth = cards[0].getBoundingClientRect().width;
+                const gap = parseFloat(getComputedStyle(track).gap) || 0;
+                const offset = index * (cardWidth + gap);
+
+                track.style.transform = 'translateX(-' + offset + 'px)';
+
+                const dots = dotsContainer.querySelectorAll('.eg-slider-dot');
+
+                dots.forEach(function (dot, i) {
+                    dot.classList.toggle('is-active', i === index);
+
+                    if (i === index) {
+                        dot.setAttribute('aria-current', 'true');
+                    } else {
+                        dot.removeAttribute('aria-current');
+                    }
+                });
+
+                prev.disabled = index === 0;
+                next.disabled = index === maxIndex;
+
+                status.textContent =
+                    'Showing ' + (index + 1) + '–' +
+                    Math.min(index + visible, cards.length) +
+                    ' of ' + cards.length + ' testimonials';
+            }
+
+            function goTo(newIndex) {
+                index = Math.min(Math.max(newIndex, 0), maxIndex);
+                updateSlider();
+            }
+
+            prev.addEventListener('click', function () {
+                goTo(index - 1);
+            });
+
+            next.addEventListener('click', function () {
+                goTo(index + 1);
+            });
+
+            // Support touch swipes and mouse dragging.
+            viewport.addEventListener('pointerdown', function (event) {
+                if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+                startX = event.clientX;
+                startY = event.clientY;
+                dragging = true;
+            });
+
+            viewport.addEventListener('pointerup', function (event) {
+                if (!dragging) return;
+                dragging = false;
+
+                const deltaX = event.clientX - startX;
+                const deltaY = event.clientY - startY;
+
+                // Ignore vertical scrolling gestures.
+                if (Math.abs(deltaX) < 45 ||
+                    Math.abs(deltaX) < Math.abs(deltaY)) {
+                    return;
+                }
+
+                goTo(index + (deltaX < 0 ? 1 : -1));
+            });
+
+            viewport.addEventListener('pointercancel', function () {
+                dragging = false;
+            });
+
+            buildDots();
+            updateSlider();
+
+            window.addEventListener('resize', function () {
+                const oldVisible = visible;
+                visible = getVisibleCount();
+
+                if (visible !== oldVisible) {
+                    buildDots();
+                }
+
+                updateSlider();
+            });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener(
+            'DOMContentLoaded',
+            initEduGreenTestimonials
+        );
+    } else {
+        initEduGreenTestimonials();
+    }
+})();
+</script>
+    
 @endsection
