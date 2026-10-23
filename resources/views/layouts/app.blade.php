@@ -1467,6 +1467,8 @@
 
 
 
+
+
         </style>
 
 
@@ -1478,6 +1480,14 @@
     </div> --}}
 
     {{-- SCHOOL PRELOADER --}}
+
+
+
+{{-- Edugreen Floating WhatsApp Chat --}}>
+
+
+
+
 <div id="school-preloader">
 
     <div class="preloader-content">
