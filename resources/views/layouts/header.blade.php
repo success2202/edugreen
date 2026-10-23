@@ -149,19 +149,54 @@
                                         </li><!-- End .mega-menu -->
 
                                         <li class="dropdown">
+                                            <a href="{{ route('user.about') }}">About Us</a>
+
+                                        </li><!-- End Pages -->
+
+{{-- 
+                                        <li class="dropdown">
                                             <a href="{{ route('user.teacher') }}">Teachers</a>
 
-                                        </li><!-- End Teacher -->
+                                        </li><!-- End Teacher --> --}}
+
                                         <li class="dropdown">
                                             <a href="{{ route('user.events') }}">Events</a>
 
                                         </li><!-- End Pages -->
-                                        <li class="dropdown">
-                                            <a href="{{ route('user.about') }}">About Us</a>
 
-                                        </li><!-- End Pages -->
+                                        {{-- <li class="dropdown">
+                                            <a href="">Scholarship</a>
+
+                                        </li><!-- End scholarship --> --}}
+
+
+
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        Scholarship 
+    </a>
+
+    <ul class="dropdown-menu">
+        <li>
+            <a href="{{ route('user.scholarship.advancement') }}">Office of Advancement</a>
+        </li>
+        <li>
+            <a href="{{ route('user.scholarship.giving') }}">Giving At Edugreen schools</a>
+        </li>
+        <li>
+            <a href="{{ route('user.scholarship') }}">Scholarship</a>
+        </li>
+    </ul>
+</li><!-- End Scholarship -->
+
+
+
+
+
+
+
                                         <li class="dropdown">
-                                            <a href="{{ route('user.blog') }}">Blogs</a>
+                                            <a href="{{ route('user.blog') }}">News</a>
 
                                         </li> <!-- end gallery -->
                                         <li class="dropdown">

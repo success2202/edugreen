@@ -65,6 +65,12 @@ Route::controller(PageContrroller::class)->group(function () {
     Route::get('/contact', 'Contact')->name('user.contact');
     Route::get('/gallery', 'Gallery')->name('user.gallery');
     Route::get('/proprietress/profile', 'Profile')->name('user.proprietress');
+    Route::get('/scholarship/advancement', 'Advancement')->name('user.scholarship.advancement');
+    Route::get('/scholarship/giving/', 'Giving')->name('user.scholarship.giving');
+    Route::get('/scholarchip', 'Scholarship')->name('user.scholarship');
+    Route::get('/privacy-policy', 'Policy')->name('user.policy');
+    Route::get('/curriculum', 'SchoolCurriculum')->name('school.curriculum');
+    Route::get('/terms-condition', 'TermsCondition')->name('user.terms');
     // Route::get('/application', 'Application')->name('user.application');
     // Route::post('/application', 'storeApplication')->name('user.store.application');
 });

@@ -110,19 +110,19 @@
                                 <a href="#">
                                     Nursery
                                 </a>
+                            </li> --}}
+
+                            <li>
+                                <a href="{{ route('school.curriculum') }}">
+                                    School Curriculum
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#">
-                                    Primary
+                                <a href="{{ route('user.application')}}">
+                                    Apply
                                 </a>
-                            </li> --}}
-
-                            {{-- <li>
-                                <a href="#">
-                                    Secondary
-                                </a>
-                            </li> --}}
+                            </li>
 
                             <li>
                                 <a href="/gallery">
@@ -275,7 +275,7 @@
                         Privacy Policy
                     </a>
 
-                    <a href="{{ url('/terms') }}">
+                    <a href="{{ url('/terms-condition') }}">
                         Terms & Conditions
                     </a>
 

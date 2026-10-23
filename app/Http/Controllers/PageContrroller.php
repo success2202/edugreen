@@ -109,4 +109,37 @@ class PageContrroller extends Controller
     //  $school = SchoolSetting::first();
     //     return view('users.application.apply', compact('school'));
     // }
+
+
+    public function Advancement(){
+        $school = SchoolSetting::first();
+    return view('users.scholarship.advancement',  compact('school'));
+    }
+
+     public function Giving(){
+        $school = SchoolSetting::first();
+    return view('users.scholarship.giving',  compact('school'));
+    }
+
+
+     public function Scholarship(){
+        $school = SchoolSetting::first();
+    return view('users.scholarship.index',  compact('school'));
+    }
+
+    public function Policy(){
+        $school = SchoolSetting::first();
+    return view('users.policy.policy',  compact('school'));
+    }
+
+    public function SchoolCurriculum(){
+        $school = SchoolSetting::first();
+    return view('users.curriculum.index',  compact('school'));
+    }
+
+     public function TermsCondition(){
+        $school = SchoolSetting::first();
+    return view('users.policy.terms',  compact('school'));
+    }
+
 }
