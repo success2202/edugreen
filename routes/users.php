@@ -71,6 +71,7 @@ Route::controller(PageContrroller::class)->group(function () {
     Route::get('/privacy-policy', 'Policy')->name('user.policy');
     Route::get('/curriculum', 'SchoolCurriculum')->name('school.curriculum');
     Route::get('/terms-condition', 'TermsCondition')->name('user.terms');
+    Route::get('/service', 'Service')->name('user.services');
     // Route::get('/application', 'Application')->name('user.application');
     // Route::post('/application', 'storeApplication')->name('user.store.application');
 });

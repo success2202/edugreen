@@ -14,7 +14,11 @@
     }
 
     .privacy-hero {
-        background: linear-gradient(135deg, #103b2b, #176b45, #278553);
+         background:
+            linear-gradient(110deg, rgba(10, 70, 47, .98),
+            rgba(23, 107, 69, .88)),
+            url('{{ asset('frontend/assets/img/nursery.jpeg') }}')
+            center/cover no-repeat;
         color: #fff;
         padding: 75px 20px;
         text-align: center;

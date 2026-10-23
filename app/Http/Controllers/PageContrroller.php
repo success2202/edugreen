@@ -142,4 +142,9 @@ class PageContrroller extends Controller
     return view('users.policy.terms',  compact('school'));
     }
 
+     public function Service(){
+        $school = SchoolSetting::first();
+    return view('users.service.index',  compact('school'));
+    }
+
 }

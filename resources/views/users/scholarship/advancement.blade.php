@@ -16,12 +16,16 @@
     .advancement-page * {
         box-sizing: border-box;
     }
-
+ 
     .advancement-hero {
         position: relative;
         padding: 95px 20px 90px;
         overflow: hidden;
-        background: linear-gradient(125deg, #103b2b, #176b43 65%, #248052);
+        background:
+            linear-gradient(110deg, rgba(10, 70, 47, .98),
+            rgba(23, 107, 69, .88)),
+            url('{{ asset('frontend/assets/img/nursery.jpeg') }}')
+            center/cover no-repeat;
         color: #fff;
     }
 

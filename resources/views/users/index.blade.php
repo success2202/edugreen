@@ -2786,6 +2786,155 @@
 
 
 
+.edu-services-home {
+            padding: 75px 0;
+            background: #fafafa;
+        }
+
+        .edu-services-home .services-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 45px;
+            padding: 0 15px;
+        }
+
+        .edu-services-home .services-heading .subtitle {
+            display: inline-block;
+            color: #278553;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .edu-services-home .services-heading h2 {
+            color: #103b2b;
+            font-size: 35px;
+            font-weight: 800;
+            margin: 0 0 15px;
+        }
+
+        .edu-services-home .services-heading p {
+            color: #627267;
+            font-size: 15px;
+            line-height: 1.9;
+            margin: 0;
+        }
+
+        .edu-services-home .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .edu-services-home .service-card {
+            background: #fff;
+            border: 1px solid #e5eee6;
+            border-radius: 14px;
+            padding: 30px 22px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: all .3s ease;
+        }
+
+        .edu-services-home .service-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(16, 59, 43, .09);
+            border-color: #b9d9c2;
+        }
+
+        .edu-services-home .service-icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: #eaf5ec;
+            color: #176b45;
+            font-size: 28px;
+            margin-bottom: 22px;
+        }
+
+        .edu-services-home .service-card h3 {
+            color: #176b45;
+            font-size: 20px;
+            font-weight: 800;
+            margin: 0 0 13px;
+        }
+
+        .edu-services-home .service-card p {
+            color: #657368;
+            font-size: 13px;
+            line-height: 1.9;
+            margin-bottom: 22px;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .edu-services-home .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #176b45;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .edu-services-home .service-link:hover {
+            color: #103b2b;
+        }
+
+        .edu-services-home .services-bottom {
+            text-align: center;
+            margin-top: 38px;
+        }
+
+        .edu-services-home .services-btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #176b45;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: background .2s ease;
+        }
+
+        .edu-services-home .services-btn:hover {
+            background: #103b2b;
+            color: #fff;
+        }
+
+        @media (max-width: 991px) {
+            .edu-services-home .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 575px) {
+            .edu-services-home {
+                padding: 50px 0;
+            }
+
+            .edu-services-home .services-heading h2 {
+                font-size: 28px;
+            }
+
+            .edu-services-home .services-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .edu-services-home .service-card {
+                padding: 25px 22px;
+            }
+        }
+
     </style>
 @endsection
 
@@ -3007,6 +3156,127 @@
             </div>
         </div>
     </section>
+
+
+
+
+{{-- ================= OUR SERVICES SECTION ================= --}}
+<section class="edu-services-home">
+
+    <div class="container">
+
+        <div class="services-heading">
+            <span class="subtitle">What We Offer</span>
+
+            <h2>Our Educational Services</h2>
+
+            <p>
+                From nurturing early beginnings to building strong
+                academic foundations, Edugreen Schools provides a
+                supportive learning environment where every child
+                is encouraged to learn, grow, and excel.
+            </p>
+        </div>
+
+        <div class="services-grid">
+
+            {{-- Creche --}}
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa fa-heart"></i>
+                </div>
+
+                <h3>Creche</h3>
+
+                <p>
+                    A caring, motherly environment for babies from
+                    around six months of age, including younger babies
+                    where individually agreed and appropriate, while
+                    their parents are away. Our stated weekday hours
+                    are 7:00 AM to 5:30 PM.
+                </p>
+
+                {{-- <a href="{{ route('user.services') }}#creche"
+                   class="service-link">
+                    Learn More <i class="fa fa-arrow-right"></i>
+                </a> --}}
+            </div>
+
+            {{-- Preschool --}}
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+
+                <h3>Preschool</h3>
+
+                <p>
+                    Premium care for toddlers aged one to two years,
+                    with sensory activities that encourage curiosity,
+                    exploration, and readiness for formal schooling.
+                </p>
+
+                {{-- <a href="{{ route('user.services') }}#preschool"
+                   class="service-link">
+                    Learn More <i class="fa fa-arrow-right"></i>
+                </a> --}}
+            </div>
+
+            {{-- Kindergarten --}}
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa fa-book"></i>
+                </div>
+
+                <h3>Kindergarten</h3>
+
+                <p>
+                    A learning journey from Kindergarten 1 to 3 for
+                    children aged three to five, introducing basic
+                    mathematics, reading, cursive writing, and other
+                    important early-learning concepts.
+                </p>
+
+                {{-- <a href="{{ route('user.services') }}#kindergarten"
+                   class="service-link">
+                    Learn More <i class="fa fa-arrow-right"></i>
+                </a> --}}
+            </div>
+
+            {{-- Grade School --}}
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa fa-graduation-cap"></i>
+                </div>
+
+                <h3>Grade School</h3>
+
+                <p>
+                    A strong academic foundation for pupils aged
+                    six to ten, covering Grade 1 through Grade 5
+                    and supporting their continuing educational growth.
+                </p>
+
+                {{-- <a href="{{ route('user.services') }}#grade-school"
+                   class="service-link">
+                    Learn More <i class="fa fa-arrow-right"></i>
+                </a> --}}
+            </div>
+
+        </div>
+
+        <div class="services-bottom">
+            <a href="{{ route('user.services') }}" class="services-btn">
+                Explore All Our Services
+                <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+
 
 
     <!-- =========================================

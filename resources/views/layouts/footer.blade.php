@@ -106,11 +106,11 @@
 
                         <ul>
 
-                            {{-- <li>
-                                <a href="#">
-                                    Nursery
+                            <li>
+                                <a href="{{ route('user.services') }}">
+                                    Services
                                 </a>
-                            </li> --}}
+                            </li>
 
                             <li>
                                 <a href="{{ route('school.curriculum') }}">

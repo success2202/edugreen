@@ -17,7 +17,7 @@
         background:
             linear-gradient(110deg, rgba(9, 69, 46, .98),
             rgba(23, 107, 69, .90)),
-            url('{{ asset('frontend/assets/img/curriculum-banner.jpg') }}')
+            url('{{ asset('frontend/assets/img/nursery.jpeg') }}')
             center/cover no-repeat;
         padding: 75px 20px;
         text-align: center;
