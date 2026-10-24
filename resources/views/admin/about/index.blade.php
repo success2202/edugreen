@@ -308,7 +308,7 @@
             <div class="about-card-body">
                 @if($about->image)
                     <img
-                        src="{{ asset('storage/' . $about->image) }}"
+                        src="{{ asset( $about->image ) }}"
                         alt="About Edu-Green Schools"
                         class="about-image"
                     >

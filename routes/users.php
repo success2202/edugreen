@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageContrroller;
 use App\Http\Controllers\StudentAuthController;
 use App\Http\Controllers\StudentPasswordResetController;
+use App\Http\Controllers\ScholarshipApplicationController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -72,6 +73,7 @@ Route::controller(PageContrroller::class)->group(function () {
     Route::get('/curriculum', 'SchoolCurriculum')->name('school.curriculum');
     Route::get('/terms-condition', 'TermsCondition')->name('user.terms');
     Route::get('/service', 'Service')->name('user.services');
+   
     // Route::get('/application', 'Application')->name('user.application');
     // Route::post('/application', 'storeApplication')->name('user.store.application');
 });
@@ -80,6 +82,13 @@ Route::controller(ApplicationController::class)->group(function () {
     Route::get('/application', 'application')->name('user.application');
     Route::post('/application', 'store')->name('user.store.application');
 });
+
+
+Route::controller(ScholarshipApplicationController::class)->group(function () {
+     Route::get('/scholarship/application', 'CreateScholarship')->name('user.scholarship.application');
+    Route::post('/scholarship/store', 'StoreApplication')->name('user.scholarship.application.store');
+});
+
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.submit');
 

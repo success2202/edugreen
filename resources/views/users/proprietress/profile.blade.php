@@ -287,7 +287,7 @@
                 <h2>[Mrs Christopher Bolanle]</h2>
 
                 <span class="proprietress-position">
-                    Proprietress, Edugreen Infant and Primary School
+                    Proprietress, Edugreen Infant and Junior School
                 </span>
 
                 <div class="proprietress-divider"></div>

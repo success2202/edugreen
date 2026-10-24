@@ -1469,6 +1469,74 @@
 
 
 
+/* whatsapp css */
+ .edugreen-whatsapp {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none !important;
+        font-family: Arial, sans-serif;
+    }
+
+    .edugreen-whatsapp-label {
+        background: #fff;
+        color: #103b2b;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 12px 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, .12);
+        transition: all .25s ease;
+    }
+
+    .edugreen-whatsapp-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #25D366;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 34px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, .2);
+        transition: all .25s ease;
+    }
+
+    .edugreen-whatsapp:hover .edugreen-whatsapp-icon {
+        background: #128C7E;
+        transform: scale(1.08);
+        color: #fff;
+    }
+
+    .edugreen-whatsapp:hover .edugreen-whatsapp-label {
+        color: #176b45;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 575px) {
+        .edugreen-whatsapp {
+            right: 15px;
+            bottom: 18px;
+        }
+
+        .edugreen-whatsapp-label {
+            font-size: 11px;
+            padding: 10px 12px;
+        }
+
+        .edugreen-whatsapp-icon {
+            width: 54px;
+            height: 54px;
+            font-size: 30px;
+        }
+    }
+
+
         </style>
 
 
@@ -1483,7 +1551,23 @@
 
 
 
-{{-- Edugreen Floating WhatsApp Chat --}}>
+{{-- Edugreen Floating WhatsApp Chat --}}
+
+<a
+    href="https://wa.me/2348130891079?text=Hello%20Edugreen%20Schools%2C%20I%20would%20like%20to%20make%20an%20enquiry."
+    class="edugreen-whatsapp"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with Edugreen Schools on WhatsApp"
+>
+    <span class="edugreen-whatsapp-label">
+        Chat with us
+    </span>
+
+    <span class="edugreen-whatsapp-icon">
+        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    </span>
+</a>
 
 
 
@@ -1796,5 +1880,5 @@ document.addEventListener("DOMContentLoaded", function () {
     @yield('scripts')
 </body>
 
-<!-- Mirrored from getnajmul.info/theme/edulight/08-university-v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Sep 2026 17:07:52 GMT -->
+
 </html>

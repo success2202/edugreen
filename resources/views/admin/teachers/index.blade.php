@@ -70,7 +70,7 @@
                                 <div class="table-avatar">
 
                                     @if($teacher->image)
-                                        <img src="{{ asset('storage/'.$teacher->image) }}"
+                                        <img src="{{ asset('frontend/assets/teacher/'.$teacher->image) }}"
                                              alt="{{ $teacher->name }}">
                                     @else
                                         {{ strtoupper(substr($teacher->name, 0, 1)) }}

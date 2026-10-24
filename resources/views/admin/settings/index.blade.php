@@ -356,7 +356,7 @@
                             @if(!empty($school->logo))
 
                                 <img
-                                    src="{{ asset('storage/' . $school->logo) }}"
+                                    src="{{ asset('frontend/assets/img/logo/' . $school->logo) }}"
                                     id="logoPreview"
                                     alt="School Logo"
                                 >
@@ -415,7 +415,7 @@
                             @if(!empty($school->favicon))
 
                                 <img
-                                    src="{{ asset('storage/' . $school->favicon) }}"
+                                    src="{{ asset('frontend/assets/img/logo/' . $school->favicon) }}"
                                     id="faviconPreview"
                                     alt="Favicon"
                                 >

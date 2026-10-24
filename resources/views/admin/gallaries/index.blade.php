@@ -33,7 +33,7 @@
 
             <div class="gallery-admin-image">
 
-                <img src="{{ asset('storage/'.$gallery->media) }}"
+                <img src="{{ asset('frontend/assets/gallery/' . $gallery->media) }}"
                      alt="{{ $gallery->title }}">
 
                 <div class="gallery-admin-actions">

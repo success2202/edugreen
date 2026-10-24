@@ -257,11 +257,27 @@ public function index(Request $request)
 
 
     // Upload student image
-    if ($request->hasFile('image')) {
+    // if ($request->hasFile('image')) {
 
-        $validated['image'] =
-            $request->file('image')->store('students', 'public');
-    }
+    //     $validated['image'] =
+    //         $request->file('image')->store('students', 'public');
+    // }
+
+
+    // Upload student image
+if ($request->hasFile('image')) {
+
+    $image = $request->file('image');
+
+    $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+
+    $image->move(
+        public_path('frontend/assets/student'),
+        $imageName
+    );
+
+    $validated['image'] = 'frontend/assets/students/' . $imageName;
+}
 
 
     $validated['password'] = Hash::make($request->first_name);
@@ -344,20 +360,44 @@ public function index(Request $request)
 
 
         // Replace image
-        if ($request->hasFile('image')) {
+        // if ($request->hasFile('image')) {
 
-            if ($student->image) {
+        //     if ($student->image) {
 
-                Storage::disk('public')
-                    ->delete($student->image);
+        //         Storage::disk('public')
+        //             ->delete($student->image);
 
-            }
+        //     }
 
-            $validated['image'] = $request
-                ->file('image')
-                ->store('students', 'public');
+        //     $validated['image'] = $request
+        //         ->file('image')
+        //         ->store('students', 'public');
 
+        // }
+
+
+        // Replace student image
+if ($request->hasFile('image')) {
+
+    // Delete the previous image
+    if ($student->image) {
+        $oldImagePath = public_path('frontend/assets/students/' . $student->image);
+
+        if (file_exists($oldImagePath)) {
+            unlink($oldImagePath);
         }
+    }
+
+    // Upload the new image
+    $image = $request->file('image');
+
+    $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+
+    $image->move(public_path('frontend/assets/students'), $imageName);
+
+    // Save the image filename in the database
+    $validated['image'] = $imageName;
+}
 
 
         $validated['status'] = $request->has('status')

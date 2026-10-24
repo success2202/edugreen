@@ -1,30 +1,5 @@
 <header>
-    <!-- Header Top -->
-    {{-- <div class="header-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6 col-xs-12 header-top-left">
-						<ul class="list-unstyled">
-							<li><i class="fa fa-map-marker"></i> Seventh Avenue New York</li>
-							<li><i class="fa fa-phone"></i> +123 456 789</li>
-							<li><i class="fa fa-envelope"></i> hello@edulight.com</li>
-						</ul>
-					</div>
-					<div class="col-sm-6 col-xs-12 header-top-right">
-						<ul class="list-unstyled">
-							<li>Follow Us:</li>
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							<li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div><!-- Ends: .header-top --> --}}
-
-
+   
 
     <div class="header-top">
         <div class="container">
@@ -185,6 +160,10 @@
         </li>
         <li>
             <a href="{{ route('user.scholarship') }}">Scholarship</a>
+        </li>
+
+        <li>
+            <a href="{{ route('user.scholarship.application') }}">Apply Scholarship</a>
         </li>
     </ul>
 </li><!-- End Scholarship -->
