@@ -152,7 +152,7 @@
             @if($blog->image)
 
     <div style="margin-bottom:15px;">
-        <img src="{{ asset('storage/' . $blog->image) }}"
+        <img src="{{ asset('frontend/assets/blog/' . $blog->image) }}"
              alt="{{ $blog->title }}"
              style="width:180px;height:110px;object-fit:cover;">
     </div>

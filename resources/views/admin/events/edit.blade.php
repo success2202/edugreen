@@ -127,7 +127,7 @@
 @if($event->image)
 
     <div style="margin-bottom:15px;">
-        <img src="{{ asset('storage/' . $event->image) }}"
+        <img src="{{ asset('frontend/assets/event/' . $event->image) }}"
              alt="{{ $event->title }}"
              style="width:180px;height:110px;object-fit:cover;">
     </div>
