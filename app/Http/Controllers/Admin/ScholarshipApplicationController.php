@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\SchoolSetting;
 use App\Models\ScholarshipApplication;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,7 @@ class ScholarshipApplicationController extends Controller
      */
     public function index(Request $request)
     {
+        $school = SchoolSetting::first();
         $query = ScholarshipApplication::query();
 
         // Search applications
@@ -63,6 +65,7 @@ class ScholarshipApplicationController extends Controller
             'totalApplications',
             'pendingApplications',
             'approvedApplications',
+            'school',
             'rejectedApplications'
         ));
     }
@@ -72,11 +75,12 @@ class ScholarshipApplicationController extends Controller
      */
     public function show($id)
     {
+        $school = SchoolSetting::first();
         $application = ScholarshipApplication::findOrFail($id);
 
         return view(
             'admin.scholarship.showDetails',
-            compact('application')
+            compact('application', 'school')
         );
     }
 

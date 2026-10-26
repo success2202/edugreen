@@ -279,7 +279,7 @@
 
                     <th>Parent / Guardian</th>
 
-                    <th>School Fees (Current Term)</th>
+                    <th>Fees (Current Term)</th>
 
                     <th>Status</th>
 

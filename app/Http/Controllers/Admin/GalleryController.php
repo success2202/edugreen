@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Gallery;
+use App\Models\SchoolSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,14 +13,16 @@ class GalleryController extends Controller
     //
      public function Index()
     {
+        $school = SchoolSetting::first();
         $galleries = Gallery::latest()->get();
 
-        return view('admin.gallaries.index', compact('galleries'));
+        return view('admin.gallaries.index', compact('galleries', 'school'));
     }
 
     public function create()
     {
-        return view('admin.gallaries.create');
+        $school = SchoolSetting::first();
+        return view('admin.gallaries.create', compact('school'));
     }
 
     public function store(Request $request)
@@ -116,16 +119,18 @@ $validated['status'] = $request->has('status') ? 1 : 0;
 
     public function show(string $id)
     {
+        $school = SchoolSetting::first();
         $gallery = Gallery::findOrFail($id);
 
-        return view('admin.gallery.show', compact('gallery'));
+        return view('admin.gallery.show', compact('gallery', 'school'));
     }
 
     public function showEditForm(string $id)
     {
+        $school = SchoolSetting::first();
         $gallery = Gallery::findOrFail($id);
 
-        return view('admin.gallaries.edit', compact('gallery'));
+        return view('admin.gallaries.edit', compact('gallery', 'school'));
     }
 
     public function update(Request $request, string $id)

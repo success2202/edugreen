@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\SchoolSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,14 +14,16 @@ class EventController extends Controller
 
      public function index()
     {
+        $school = SchoolSetting::first();
         $events = Event::latest('event_date')->get();
 
-        return view('admin.events.index', compact('events'));
+        return view('admin.events.index', compact('events', 'school'));
     }
 
     public function create()
     {
-        return view('admin.events.create');
+        $school = SchoolSetting::first();
+        return view('admin.events.create', compact('school'));
     }
 
     public function store(Request $request)
@@ -74,16 +77,18 @@ if ($request->hasFile('image')) {
 
     public function show(string $id)
     {
+        $school = SchoolSetting::first();
         $event = Event::findOrFail($id);
 
-        return view('admin.events.show', compact('event'));
+        return view('admin.events.show', compact('event', 'school'));
     }
 
     public function showEditForm(string $id)
     {
+        $school = SchoolSetting::first();
         $event = Event::findOrFail($id);
 
-        return view('admin.events.edit', compact('event'));
+        return view('admin.events.edit', compact('event', 'school'));
     }
 
     public function update(Request $request, string $id)

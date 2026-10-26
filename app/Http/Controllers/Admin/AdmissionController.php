@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Application;
+use App\Models\SchoolSetting;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -46,6 +47,8 @@ class AdmissionController extends Controller
 
     public function Index(Request $request)
 {
+
+    $school = SchoolSetting::first();
     $query = Application::whereNotNull('admission_number');
 
 
@@ -97,7 +100,7 @@ class AdmissionController extends Controller
 
     return view(
         'admin.admission.index',
-        compact('admissions', 'students')
+        compact('admissions', 'students', 'school')
     );
 }
 
@@ -136,7 +139,9 @@ class AdmissionController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('admin.application.index', compact('applications'));
+        $school = SchoolSetting::first();
+
+        return view('admin.application.index', compact('applications', 'school'));
     }
 
     /**
@@ -144,9 +149,10 @@ class AdmissionController extends Controller
      */
     public function showApplication($id)
     {
+        $school = SchoolSetting::first();
         $application = Application::findOrFail($id);
 
-        return view('admin.application.show', compact('application'));
+        return view('admin.application.show', compact('application', 'school'));
     }
 
     /**

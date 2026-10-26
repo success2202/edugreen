@@ -67,6 +67,7 @@ class StudentController extends Controller
 
 public function index(Request $request)
 {
+    
     $query = Student::query();
 
     if ($request->filled('search')) {
@@ -109,7 +110,7 @@ public function index(Request $request)
     if ($currentSession && $currentTerm) {
         $studentIds = $students->getCollection()->pluck('id');
 
-        $paymentStatuses = SchoolFeePayment::whereIn(
+        $paymentStatuses = SchoolFeesPayment::whereIn(
             'student_id',
             $studentIds
         )
@@ -143,7 +144,8 @@ public function index(Request $request)
      */
     public function create()
     {
-        return view('admin.students.create');
+        $school = SchoolSetting::first();
+        return view('admin.students.create', compact('school'));
     }
 
 
@@ -313,9 +315,10 @@ if ($request->hasFile('image')) {
      */
     public function showEditForm($id)
     {
+        $school = SchoolSetting::first();
         $student = Student::findOrFail($id);
 
-        return view('admin.students.edit', compact('student'));
+        return view('admin.students.edit', compact('student','school'));
     }
 
 
@@ -441,9 +444,10 @@ if ($request->hasFile('image')) {
 
     public function createResult($id)
 {
+    $school = SchoolSetting::first();
     $student = Student::findOrFail($id);
 
-    return view('admin.students.createResult', compact('student'));
+    return view('admin.students.createResult', compact('student', 'school'));
 }
 
 
@@ -566,6 +570,7 @@ public function storeResult(Request $request, $id)
 
 public function showResult(Request $request, $id)
 {
+    $school = SchoolSetting::first();
     $student = Student::findOrFail($id);
 
     /*
@@ -623,6 +628,7 @@ public function showResult(Request $request, $id)
         'student',
         'results',
         'session',
+        'school',
         'term'
     ));
 }
@@ -631,6 +637,7 @@ public function showResult(Request $request, $id)
 // edit student result
     public function editResult($studentId, $resultId)
 {
+    $school = SchoolSetting::first();
     $student = Student::findOrFail($studentId);
 
     $result = Result::where('id', $resultId)
@@ -639,7 +646,8 @@ public function showResult(Request $request, $id)
 
     return view('admin.students.resultEdit', compact(
         'student',
-        'result'
+        'result',
+        'school'
     ));
 }
 
@@ -772,6 +780,7 @@ public function updateResult(Request $request, $studentId, $resultId)
 
 public function printResult(Request $request, $studentId)
 {
+    
     $student = Student::findOrFail($studentId);
 
     $request->validate([

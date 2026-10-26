@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\SchoolSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -13,14 +14,16 @@ class BlogController extends Controller
     //
       public function index()
     {
+        $school = SchoolSetting::first();
         $blogs = Blog::latest()->get();
 
-        return view('admin.blogs.index', compact('blogs'));
+        return view('admin.blogs.index', compact('blogs', 'school'));
     }
 
     public function create()
     {
-        return view('admin.blogs.create');
+        $school = SchoolSetting::first();
+        return view('admin.blogs.create', compact('school'));
     }
 
     public function store(Request $request)
@@ -82,16 +85,18 @@ class BlogController extends Controller
 
     public function show(string $id)
     {
+        $school = SchoolSetting::first();
         $blog = Blog::findOrFail($id);
 
-        return view('admin.blogs.show', compact('blog'));
+        return view('admin.blogs.show', compact('blog', 'school'));
     }
 
     public function showEditForm(string $id)
     {
+        $school = SchoolSetting::first();
         $blog = Blog::findOrFail($id);
 
-        return view('admin.blogs.edit', compact('blog'));
+        return view('admin.blogs.edit', compact('blog', 'school'));
     }
 
     public function update(Request $request, string $id)

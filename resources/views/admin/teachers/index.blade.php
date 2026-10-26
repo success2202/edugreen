@@ -4,6 +4,55 @@
 
 @section('page-title', 'Teachers')
 
+@section('styles')  
+<style> 
+
+/* Responsive teachers table - preserve existing design */
+.teacher-table-scroll {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Keep all teacher columns visible */
+.teacher-table-scroll .admin-table {
+    width: 100%;
+    min-width: 850px;
+    margin-bottom: 0;
+    border-collapse: collapse;
+}
+
+/* Prevent content from being cut off */
+.teacher-table-scroll .admin-table th,
+.teacher-table-scroll .admin-table td {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+/* Allow the teacher name to wrap */
+.teacher-table-scroll .admin-table td:nth-child(2) {
+    white-space: normal;
+    min-width: 160px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .teacher-table-scroll {
+        width: 100%;
+        overflow-x: auto !important;
+        overflow-y: hidden;
+    }
+
+    .teacher-table-scroll .admin-table {
+        min-width: 850px;
+    }
+}
+
+</style>
+@endsection
 @section('content')
 
 <div class="admin-page-header">
@@ -37,7 +86,7 @@
     </div>
 
 
-    <div class="table-responsive">
+    <div class="table-responsive teacher-table-scroll">
 
         <table class="admin-table">
 

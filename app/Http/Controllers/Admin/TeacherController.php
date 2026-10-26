@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\SchoolSetting;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -13,14 +14,16 @@ class TeacherController extends Controller
 
      public function index()
     {
+        $school = SchoolSetting::first();
         $teachers = Teacher::latest()->get();
 
-        return view('admin.teachers.index', compact('teachers'));
+        return view('admin.teachers.index', compact('teachers', 'school'));
     }
 
     public function create()
     {
-        return view('admin.teachers.create');
+        $school = SchoolSetting::first();
+        return view('admin.teachers.create', compact('school'));
     }
 
     public function store(Request $request)
@@ -77,16 +80,18 @@ class TeacherController extends Controller
 
     public function show(string $id)
     {
+        $school = SchoolSetting::first();
         $teacher = Teacher::findOrFail($id);
 
-        return view('admin.teachers.show', compact('teacher'));
+        return view('admin.teachers.show', compact('teacher', 'school'));
     }
 
     public function showEditForm(string $id)
     {
+        $school = SchoolSetting::first();
         $teacher = Teacher::findOrFail($id);
 
-        return view('admin.teachers.edit', compact('teacher'));
+        return view('admin.teachers.edit', compact('teacher', 'school'));
     }
 
     public function update(Request $request, string $id)
