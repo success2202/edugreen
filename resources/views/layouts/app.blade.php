@@ -1816,15 +1816,14 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    // Show scholarship popup after 1 second
     setTimeout(function () {
-        popup.classList.add('show');
-    }, 1500);
+    popup.classList.add('show');
 
-    // Automatically close after 5 seconds
     setTimeout(function () {
-        closeScholarshipPopup();
-    }, 6000);
+        popup.classList.remove('show');
+    }, 10000);
+
+}, 10000);
 
 });
 

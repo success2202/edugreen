@@ -4,6 +4,57 @@
 
 @section('page-title', 'Students')
 
+@section('styles')
+<style> 
+
+/* Responsive student table - preserve existing design */
+.student-table-scroll {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Keep all columns visible and allow horizontal scrolling */
+.student-table-scroll .admin-table {
+    width: 100%;
+    min-width: 1000px;
+    margin-bottom: 0;
+    border-collapse: collapse;
+}
+
+/* Prevent important table content from being cut off */
+.student-table-scroll .admin-table th,
+.student-table-scroll .admin-table td {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+/* Allow the student name and guardian details to wrap naturally */
+.student-table-scroll .admin-table td:first-child,
+.student-table-scroll .admin-table td:nth-child(6) {
+    white-space: normal;
+    min-width: 160px;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    .student-table-scroll {
+        width: 100%;
+        overflow-x: auto !important;
+        overflow-y: hidden;
+    }
+
+    .student-table-scroll .admin-table {
+        min-width: 1000px;
+    }
+}
+</style>
+
+@endsection
+
 @section('content')
 
 <div class="admin-page-header">
@@ -208,7 +259,7 @@
 </p> --}}
     {{-- Student Table --}}
 
-    <div class="table-responsive">
+    <div class="table-responsive student-table-scroll">
 
         <table class="admin-table">
 

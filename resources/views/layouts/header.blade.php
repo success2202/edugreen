@@ -163,7 +163,7 @@
         </li>
 
         <li>
-            <a href="{{ route('user.scholarship.application') }}">Apply Scholarship</a>
+            <a href="{{ route('user.scholarship.application') }}">Apply for Scholarship</a>
         </li>
     </ul>
 </li><!-- End Scholarship -->

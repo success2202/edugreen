@@ -10,6 +10,7 @@ use App\Models\Blog;
 use App\Models\Gallery;
 use App\Models\Application;
 use App\Http\Controllers\Admin\Schema;
+use App\Models\SchoolSetting;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -58,7 +59,7 @@ class DashboardController extends Controller
             ->take(3)
             ->get();
 
-
+        $school = SchoolSetting::first();
         return view('admin.dashboard', compact(
             'totalStudents',
             'totalTeachers',
@@ -70,6 +71,7 @@ class DashboardController extends Controller
             // 'totalFacilities',
             'recentStudents',
             'recentEvents',
+            'school',
             'recentBlogs'
         ));
     }

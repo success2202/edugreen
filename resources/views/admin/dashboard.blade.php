@@ -200,7 +200,7 @@
 
     <!-- FACILITIES -->
 
-    {{-- <div class="dashboard-card">
+    <div class="dashboard-card">
 
         <div class="dashboard-card-top">
 
@@ -213,10 +213,10 @@
         <h3>0</h3>
 
         <p>
-            Facilities
+            Scholarship
         </p>
 
-    </div> --}}
+    </div>
 
 </div>
 
