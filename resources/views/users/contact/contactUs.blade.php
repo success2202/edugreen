@@ -108,7 +108,7 @@
 				<div class="col-sm-7">
 					<div class="contact-one-form">
 						<h3>Write Your Message Here</h3>
-						<form action="{{ route('contact.submit') }}" method="POST">
+						<form action="{{ route('contact.send') }}" method="POST">
    							 @csrf
 							<div class="form-group row">
 								<div class="col-sm-6">

@@ -22,6 +22,11 @@
           href="https://fonts.gstatic.com"
           crossorigin>
 
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
 
@@ -887,11 +892,11 @@
         </a>
 
 
-        <a href="#" class="sidebar-link">
+        <a href="{{ route('admin.scholarship-applications.index') }}" class="sidebar-link">
 
             <i class="ti ti-building"></i>
 
-            Facilities
+            Scholarship
 
         </a>
 

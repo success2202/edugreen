@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AcademicController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\AboutPageController;
 use App\Http\Controllers\Admin\SchoolFeePaymentController;
+use App\Http\Controllers\Admin\ScholarshipApplicationController;
 
 Route::prefix('manage')->group(function () {
     Route::controller(AuthController::class)->group(function () {
@@ -170,6 +171,16 @@ Route::patch(
     '/students/{studentId}/fees/mark-unpaid',
     [SchoolFeePaymentController::class, 'markUnpaid'])->name('admin.students.fees.mark-unpaid');
 
+
+
+Route::get('/scholarship-applications', [ScholarshipApplicationController::class,
+    'index'])->name('admin.scholarship-applications.index');
+
+Route::get('/scholarship-applications/{id}', [ScholarshipApplicationController::class,
+    'show'])->name('admin.scholarship-applications.show');
+
+Route::put('/scholarship-applications/{id}/status', [ ScholarshipApplicationController::class,
+    'updateStatus'])->name('admin.scholarship-applications.update-status');
 
 });
 

@@ -40,12 +40,37 @@ class ScholarshipApplicationController extends Controller
             'birth_certificate' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:5120',
         ]);
 
-        foreach (['academic_result', 'birth_certificate'] as $document) {
-            if ($request->hasFile($document)) {
-                $validated[$document] = $request->file($document)
-                    ->store('scholarship-documents', 'local');
-            }
-        }
+        // foreach (['academic_result', 'birth_certificate'] as $document) {
+        //     if ($request->hasFile($document)) {
+        //         $validated[$document] = $request->file($document)
+        //             ->store('scholarship-documents', 'local');
+        //     }
+        // }
+
+
+        // Ensure the scholarship directory exists
+$uploadPath = public_path('frontend/assets/scholarship');
+
+if (!file_exists($uploadPath)) {
+    mkdir($uploadPath, 0755, true);
+}
+
+// Upload scholarship documents
+foreach (['academic_result', 'birth_certificate'] as $document) {
+    if ($request->hasFile($document)) {
+
+        $file = $request->file($document);
+
+        // Generate a unique filename
+        $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+
+        // Move file directly into public/frontend/assets/scholarship/
+        $file->move($uploadPath, $fileName);
+
+        // Save the relative path in the database
+        $validated[$document] = 'frontend/assets/scholarship/' . $fileName;
+    }
+}
 
         $validated['application_number'] =
             'EGS-SCH-' . now()->format('Ymd') . '-' . Str::upper(Str::random(6));

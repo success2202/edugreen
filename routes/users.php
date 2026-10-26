@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageContrroller;
 use App\Http\Controllers\StudentAuthController;
@@ -90,7 +89,10 @@ Route::controller(ScholarshipApplicationController::class)->group(function () {
 });
 
 
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.submit');
+// Route::post('/contact', [ContactController::class, 'store'])->name('contact.submit');
+
+Route::post('/contact/send', ['App\\Http\\Controllers\\ContactController', 'send'])
+    ->name('contact.send');
 
 
 Route::controller('App\\Http\\Controllers\\StudentResultController')->group(function () {

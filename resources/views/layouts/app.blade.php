@@ -1537,6 +1537,72 @@
     }
 
 
+
+
+    .scholarship-popup-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.scholarship-popup-icon {
+    background: #e5f5eb;
+    color: #176b45;
+}
+
+.scholarship-popup-label {
+    color: #176b45;
+}
+
+.scholarship-popup-content h3 {
+    color: #173f2c;
+    line-height: 1.4;
+}
+
+.scholarship-popup-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+    padding: 13px;
+    margin: 18px 0;
+    border-radius: 8px;
+    background: #f0f8f2;
+    color: #345a43;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.scholarship-popup-highlight i {
+    color: #176b45;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.scholarship-popup-btn {
+    background: #176b45;
+    color: #fff;
+}
+
+.scholarship-popup-btn:hover {
+    background: #105537;
+    color: #fff;
+}
+
+.scholarship-popup-note {
+    margin-top: 13px;
+    margin-bottom: 0;
+    color: #78837c;
+    font-size: 12px;
+}
+
+@media (max-width: 480px) {
+    .scholarship-popup-content {
+        width: calc(100% - 30px);
+        max-width: 400px;
+        margin: 15px auto;
+    }
+}
+
         </style>
 
 
@@ -1586,7 +1652,7 @@
 
         {{-- School Name --}}
         <h2 class="preloader-school-name">
-            Edu-Green Schools
+            Edugreen Schools
         </h2>
 
         <p class="preloader-tagline">
@@ -1619,7 +1685,7 @@
 {{-- EVENT POPUP --}}
 
 <!-- Upcoming Event Popup -->
-<div id="eventPopup" class="event-popup">
+{{-- <div id="eventPopup" class="event-popup">
     <div class="event-popup-content">
 
         <button type="button" class="event-popup-close" onclick="closeEventPopup()">
@@ -1677,7 +1743,100 @@ function closeEventPopup() {
         popup.classList.remove('show');
     }
 }
+</script> --}}
+
+
+
+
+
+{{-- SCHOLARSHIP APPLICATION POPUP --}}
+
+<div id="scholarshipPopup" class="event-popup">
+    <div class="event-popup-content scholarship-popup-content">
+
+        {{-- Close Button --}}
+        <button type="button"
+                class="event-popup-close"
+                onclick="closeScholarshipPopup()"
+                aria-label="Close scholarship popup">
+            &times;
+        </button>
+
+        {{-- Scholarship Icon --}}
+        <div class="event-popup-icon scholarship-popup-icon">
+            <i class="ti ti-school"></i>
+        </div>
+
+        <span class="event-popup-label scholarship-popup-label">
+            SCHOLARSHIP OPPORTUNITY
+        </span>
+
+        <h3>Investing in Your Child's Future</h3>
+
+        <p class="event-popup-date">
+            <i class="ti ti-award"></i>
+            Edugreen Schools Scholarship Programme
+        </p>
+
+        {{-- <p class="event-popup-description">
+            Give your child the opportunity to achieve more. Apply for an
+            Edu-Green Schools scholarship and take the next step towards
+            quality education and a brighter future.
+        </p> --}}
+
+        <div class="scholarship-popup-highlight">
+            <i class="ti ti-heart-handshake"></i>
+            <span>
+                Supporting students and creating opportunities for academic excellence.
+            </span>
+        </div>
+
+        {{-- Apply Link --}}
+        <a href="{{ route('user.scholarship.application') }}"
+           class="event-popup-btn scholarship-popup-btn">
+            Apply Now
+            <i class="ti ti-arrow-right"></i>
+        </a>
+
+        <p class="scholarship-popup-note">
+            Your child's future begins with an opportunity.
+        </p>
+
+    </div>
+</div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const popup = document.getElementById('scholarshipPopup');
+
+    if (!popup) {
+        return;
+    }
+
+    // Show scholarship popup after 1 second
+    setTimeout(function () {
+        popup.classList.add('show');
+    }, 1500);
+
+    // Automatically close after 5 seconds
+    setTimeout(function () {
+        closeScholarshipPopup();
+    }, 6000);
+
+});
+
+function closeScholarshipPopup() {
+    const popup = document.getElementById('scholarshipPopup');
+
+    if (popup) {
+        popup.classList.remove('show');
+    }
+}
 </script>
+
 	<!--==================
 		Header
 	===================-->

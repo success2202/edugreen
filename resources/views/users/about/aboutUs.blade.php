@@ -1002,10 +1002,10 @@
                             <div class="edu-about-main-image">  <img
                             src="{{ asset($about->image)}}"
                             alt="Students learning at Edu Green School"> </div>
-                            <div class="edu-about-floating-card">
+                            {{-- <div class="edu-about-floating-card">
                                 <div class="edu-floating-icon"> <i class="ti ti-school"></i> </div>
                                 <div> <strong>Quality</strong> <span>Education</span> </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div> 
 					{{-- CONTENT --}}
