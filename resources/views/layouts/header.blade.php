@@ -6,22 +6,7 @@
             <div class="row">
 
                 {{-- Contact Information --}}
-                <div class="col-sm-5 col-xs-12 header-top-left">
-                    <ul class="list-unstyled">
-                        <li>
-                        <i class="fa fa-map-marker"></i>
-                        {{ $school->school_address ?? 'Seventh Avenue New York' }}
-                    </li>
-                        <li>
-                            <i class="fa fa-phone"></i>
-                            {{ $school->phone ?? '+123 456 789' }}
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope"></i>
-                            {{ $school->email ?? 'hello@edulight.com' }}
-                        </li>
-                    </ul>
-                </div>
+              
 
                 {{-- Check Result - Center --}}
                 {{-- <div class="col-sm-2 col-xs-12 text-center">

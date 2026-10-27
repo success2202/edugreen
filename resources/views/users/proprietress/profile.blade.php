@@ -287,7 +287,7 @@
                 <h2>[Mrs Christopher Bolanle]</h2>
 
                 <span class="proprietress-position">
-                    Proprietress, Edugreen Infant and Junior School
+                    Founder/Proprietress, Edugreen Infant and Junior School
                 </span>
 
                 <div class="proprietress-divider"></div>
@@ -319,7 +319,7 @@ Above all, Mrs. Bolanle is a Christian whose faith shapes her values, leadership
  and passion for serving children, families, and the wider community.
 
 She is happily married to Mr. Christopher Anyanwu Jessey, and together they are 
-blessed with five beautiful children. Her experiences as a wife, mother, educationist,
+blessed with beautiful children. Her experiences as a wife, mother, educationist,
  and school leader further inspire her passion for supporting families and building stronger foundations for children.
 
 Her vision is to contribute to a generation of children who are not only academically 

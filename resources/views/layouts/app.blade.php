@@ -1682,74 +1682,10 @@
 </div>
 	
 
-{{-- EVENT POPUP --}}
-
-<!-- Upcoming Event Popup -->
-{{-- <div id="eventPopup" class="event-popup">
-    <div class="event-popup-content">
-
-        <button type="button" class="event-popup-close" onclick="closeEventPopup()">
-            &times;
-        </button>
-
-        <div class="event-popup-icon">
-            <i class="ti ti-calendar-event"></i>
-        </div>
-
-        <span class="event-popup-label">UPCOMING EVENT</span>
-
-        <h3>School Open Day</h3>
-
-        <p class="event-popup-date">
-            <i class="ti ti-calendar"></i>
-            Saturday, October 10, 2026
-        </p>
-
-        <p class="event-popup-description">
-            Join us for our School Open Day and discover our learning
-            environment, facilities and academic programmes.
-        </p>
-
-        <a href="{{ url('/events') }}" class="event-popup-btn">
-            View Event
-            <i class="ti ti-arrow-right"></i>
-        </a>
-
-    </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-    const popup = document.getElementById('eventPopup');
-
-    // Show popup after 1 second
-    setTimeout(function () {
-        popup.classList.add('show');
-    }, 1000);
-
-    // Automatically disappear after 4 seconds
-    setTimeout(function () {
-        closeEventPopup();
-    }, 5000);
-
-});
-
-function closeEventPopup() {
-
-    const popup = document.getElementById('eventPopup');
-
-    if (popup) {
-        popup.classList.remove('show');
-    }
-}
-</script> --}}
 
 
 
-
-
-{{-- SCHOLARSHIP APPLICATION POPUP --}}
+{{-- EDUGREEN GIVING POPUP --}}
 
 <div id="scholarshipPopup" class="event-popup">
     <div class="event-popup-content scholarship-popup-content">
@@ -1758,73 +1694,67 @@ function closeEventPopup() {
         <button type="button"
                 class="event-popup-close"
                 onclick="closeScholarshipPopup()"
-                aria-label="Close scholarship popup">
+                aria-label="Close Edugreen Giving popup">
             &times;
         </button>
 
-        {{-- Scholarship Icon --}}
+        {{-- Giving Icon --}}
         <div class="event-popup-icon scholarship-popup-icon">
-            <i class="ti ti-school"></i>
+            <i class="ti ti-heart-handshake"></i>
         </div>
 
         <span class="event-popup-label scholarship-popup-label">
-            SCHOLARSHIP OPPORTUNITY
+            EDUGREEN GIVING
         </span>
 
-        <h3>Investing in Your Child's Future</h3>
+        <h3>Be Part of Our Success Story</h3>
 
         <p class="event-popup-date">
-            <i class="ti ti-award"></i>
-            Edugreen Schools Scholarship Programme
+            <i class="ti ti-seeding"></i>
+            Building a Lasting Foundation for Future Generations
         </p>
 
-        {{-- <p class="event-popup-description">
-            Give your child the opportunity to achieve more. Apply for an
-            Edu-Green Schools scholarship and take the next step towards
-            quality education and a brighter future.
-        </p> --}}
-
         <div class="scholarship-popup-highlight">
-            <i class="ti ti-heart-handshake"></i>
+            <i class="ti ti-heart"></i>
             <span>
-                Supporting students and creating opportunities for academic excellence.
+                Together, we can nurture young minds, create meaningful
+                opportunities, and build a brighter future through education.
             </span>
         </div>
 
-        {{-- Apply Link --}}
-        <a href="{{ route('user.scholarship.application') }}"
+        {{-- Edugreen Giving Link --}}
+        <a href="{{ route('user.scholarship.giving') }}"
            class="event-popup-btn scholarship-popup-btn">
-            Apply Now
+            Support Edugreen
             <i class="ti ti-arrow-right"></i>
         </a>
 
         <p class="scholarship-popup-note">
-            Your child's future begins with an opportunity.
+            Every contribution can help shape a better tomorrow.
         </p>
 
     </div>
 </div>
 
-
-
 <script>
-document.addEventListener('DOMContentLoaded', function () {
 
+document.addEventListener('DOMContentLoaded', function () {
     const popup = document.getElementById('scholarshipPopup');
 
     if (!popup) {
         return;
     }
 
+    // Show popup after 10 seconds
     setTimeout(function () {
-    popup.classList.add('show');
+        popup.classList.add('show');
 
-    setTimeout(function () {
-        popup.classList.remove('show');
+        // Hide popup after 5 seconds
+        setTimeout(function () {
+            popup.classList.remove('show');
+        }, 5000);
+
     }, 10000);
-
-}, 10000);
-
 });
 
 function closeScholarshipPopup() {
@@ -1834,7 +1764,11 @@ function closeScholarshipPopup() {
         popup.classList.remove('show');
     }
 }
+
 </script>
+
+
+
 
 	<!--==================
 		Header

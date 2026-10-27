@@ -3744,23 +3744,31 @@
                         </span>
 
                         <h2>
-                            Welcome to
-                            <span>Edugreen Infant & Junior School</span>
+                            FOUNDER/
+                            <span>PROPRIETRESS NOTE</span>
                         </h2>
 
                         <div class="principal-line"></div>
 
                         <p>
-                            It is my pleasure to welcome you to Edu Green Infant and Junior School. We are
-                            committed to providing every child with a strong academic
-                            foundation and the opportunity to develop their unique talents.
+                            We believe that a truly excellent and godly education integrates opportunities to explore
+                             a variety of interests while developing a strong academic base where learners can feel 
+                             loved and respected. It is this combination of passion and purpose that gave birth to 
+                             our core values that create children who are curious, motivated, and excited to learn.
+                              Excellent teaching distinguishes the Edugreen experience, where scholars in their 
+                              disciplines foster the capacity to think critically, communicate persuasively, reason 
+                              compassionately, and analyze wisely.
                         </p>
 
                         <p>
-                            Our teachers, parents and school community work together
-                            to create an environment where students can learn,
-                            discover and grow into responsible and confident individuals.
+                            Thoughtful partnerships with our stakeholders result in children thoroughly prepared 
+                            for what’s ahead with the competence and confidence to fully engage in their higher 
+                            education journey and lives beyond. Our research-driven education is timeless, providing 
+                            the intellectual and moral foundation for a life of fulfilling contribution
                         </p>
+
+                        <P>An Edugreen education transforms, opening a world of possibilities for each child! 
+                            You are welcome to learn more about the magic that is Edugreen Schools.</P>
 
                         <div class="principal-signature">
 
@@ -3769,7 +3777,7 @@
                             </strong>
 
                             <span>
-                                Proprietress / Head of School
+                                Founder/Proprietress
                             </span>
 <br>
                             <a href="{{ route('user.proprietress') }}">
