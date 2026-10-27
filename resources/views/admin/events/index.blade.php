@@ -4,6 +4,66 @@
 
 @section('page-title', 'Events')
 
+@section('styles')
+    <style>
+    /* Events table horizontal scrolling */
+.events-table-scroll {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.events-table-scroll .admin-table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+    margin-bottom: 0;
+}
+
+.events-table-scroll .admin-table th,
+.events-table-scroll .admin-table td {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+/* Allow long event titles and venues to wrap */
+.events-table-scroll .admin-table td:nth-child(2),
+.events-table-scroll .admin-table td:nth-child(4) {
+    white-space: normal;
+    min-width: 160px;
+}
+
+/* Keep action buttons aligned */
+.events-table-scroll .table-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.events-table-scroll .table-actions form {
+    display: inline-flex;
+    margin: 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .events-table-scroll {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto !important;
+    }
+
+    .events-table-scroll .admin-table {
+        min-width: 850px;
+    }
+}
+    </style>
+@endsection
+
 @section('content')
 
 <div class="admin-page-header">
@@ -34,7 +94,7 @@
     </div>
 
 
-    <div class="table-responsive">
+    <div class="table-responsive events-table-scroll">
 
         <table class="admin-table">
 

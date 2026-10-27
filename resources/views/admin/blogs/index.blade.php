@@ -4,6 +4,67 @@
 
 @section('page-title', 'Blog')
 
+@section('styles')
+    <style> 
+
+/* Blog table horizontal scrolling */
+.blogs-table-scroll {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.blogs-table-scroll .admin-table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+    margin-bottom: 0;
+}
+
+.blogs-table-scroll .admin-table th,
+.blogs-table-scroll .admin-table td {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+/* Allow long blog titles to wrap */
+.blogs-table-scroll .admin-table td:nth-child(2) {
+    white-space: normal;
+    min-width: 200px;
+}
+
+/* Keep action buttons on one line */
+.blogs-table-scroll .table-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.blogs-table-scroll .table-actions form {
+    display: inline-flex;
+    margin: 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .blogs-table-scroll {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto !important;
+    }
+
+    .blogs-table-scroll .admin-table {
+        min-width: 850px;
+    }
+}
+
+    </style>
+@endsection
+
 @section('content')
 
 <div class="admin-page-header">
@@ -34,7 +95,7 @@
     </div>
 
 
-    <div class="table-responsive">
+    <div class="table-responsive blogs-table-scroll">
 
         <table class="admin-table">
 

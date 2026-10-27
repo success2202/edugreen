@@ -1,5 +1,52 @@
 @extends('admin.layouts.app')
 
+@section('styles') 
+<style>
+   /* Applications table horizontal scrolling */
+.applications-table-scroll {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.applications-table-scroll .admin-table {
+    width: 100%;
+    min-width: 1000px;
+    border-collapse: collapse;
+    margin-bottom: 0;
+}
+
+.applications-table-scroll .admin-table th,
+.applications-table-scroll .admin-table td {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+/* Allow applicant and parent details to wrap */
+.applications-table-scroll .admin-table td:first-child,
+.applications-table-scroll .admin-table td:nth-child(4) {
+    white-space: normal;
+    min-width: 170px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .applications-table-scroll {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto !important;
+    }
+
+    .applications-table-scroll .admin-table {
+        min-width: 1000px;
+    }
+}
+
+    </style>
+@endsection
 @section('content')
 
 <div class="admin-page">
@@ -113,7 +160,7 @@
 
     <div class="admin-card">
 
-        <div class="table-responsive">
+        <div class="table-responsive applications-table-scroll">
 
             <table class="admin-table">
 

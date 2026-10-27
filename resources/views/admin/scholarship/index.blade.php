@@ -352,6 +352,60 @@
             overflow-x: auto;
         }
     }
+
+
+    /* Scholarship applications table horizontal scrolling */
+.scholarship-applications-scroll {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scholarship-applications-scroll .application-table {
+    width: 100%;
+    min-width: 1000px;
+    border-collapse: collapse;
+    margin-bottom: 0;
+}
+
+.scholarship-applications-scroll .application-table th,
+.scholarship-applications-scroll .application-table td {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+/* Allow applicant details to wrap */
+.scholarship-applications-scroll .application-table td:first-child {
+    white-space: normal;
+    min-width: 220px;
+}
+
+/* Allow programme names to wrap */
+.scholarship-applications-scroll .application-table td:nth-child(3) {
+    white-space: normal;
+    min-width: 160px;
+}
+
+/* Keep the View Details button visible */
+.scholarship-applications-scroll .application-table td:last-child {
+    min-width: 150px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .scholarship-applications-scroll {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto !important;
+    }
+
+    .scholarship-applications-scroll .application-table {
+        min-width: 1000px;
+    }
+}
 </style>
 
 <div class="container-fluid scholarship-admin">
@@ -462,7 +516,7 @@
             </div>
         @endif
 
-        <div class="table-responsive">
+        <div class="table-responsive scholarship-applications-scroll">
             <table class="table application-table" id="applicationsTable">
                 <thead>
                     <tr>
