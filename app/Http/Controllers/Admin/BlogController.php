@@ -178,17 +178,24 @@ if ($request->hasFile('image')) {
     }
 
     public function destroy(string $id)
-    {
-        $blog = Blog::findOrFail($id);
+{
+    $blog = Blog::findOrFail($id);
 
-        if ($blog->image) {
-            Storage::disk('public')->delete($blog->image);
+    // Delete blog image from public folder
+    if ($blog->image) {
+        $imagePath = public_path('frontend/assets/blog/' . $blog->image);
+
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
         }
-
-        $blog->delete();
-
-        return redirect()
-            ->route('admin.blogs.index')
-            ->with('success', 'Blog post deleted successfully.');
     }
+
+    // Delete blog record
+    $blog->delete();
+
+    return redirect()
+        ->route('admin.blogs.index')
+        ->with('success', 'Blog post deleted successfully.');
+}
+
 }

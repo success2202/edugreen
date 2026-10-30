@@ -190,7 +190,7 @@
                                     @if($admission->student_photo)
 
                                         <img
-                                            src="{{ asset('storage/'.$admission->student_photo) }}"
+                                            src="{{ asset('/frontend/assets/applicants/'.$admission->student_photo) }}"
                                             alt="{{ $admission->first_name }}"
                                         >
 

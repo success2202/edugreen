@@ -192,7 +192,7 @@
                                     @if($application->student_photo)
 
                                         <img
-                                            src="{{ asset('storage/'.$application->student_photo) }}"
+                                            src="{{ asset('/frontend/assets/applicants/'.$application->student_photo) }}"
                                             alt="{{ $application->first_name }}"
                                         >
 

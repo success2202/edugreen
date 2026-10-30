@@ -46,7 +46,7 @@ Route::prefix('manage')->group(function () {
             Route::post('/teacher/store', 'store')->name('admin.teachers.store');
             Route::put('/teacher/update/{id}', 'update')->name('admin.teachers.update');
             Route::get('/teacher/edit/{id}', 'showEditForm')->name('admin.teachers.edit');
-            Route::post('/teacher/delete/{id}', 'destroy')->name('admin.teachers.destroy');
+            Route::delete('/teacher/delete/{id}', 'destroy')->name('admin.teachers.destroy');
            
         });
 
@@ -57,7 +57,7 @@ Route::prefix('manage')->group(function () {
             Route::post('/students/store', 'store')->name('admin.students.store'); 
             Route::put('/students/update/{id}', 'update')->name('admin.students.update');
             Route::get('/students/edit/{id}', 'showEditForm')->name('admin.students.edit');
-            Route::post('/students/delete/{id}', 'destroy')->name('admin.students.destroy');
+            Route::delete('/students/delete/{id}', 'destroy')->name('admin.students.destroy');
             Route::get('/students/{id}', 'show')->name('admin.students.show');
             Route::get('/students/create-result/{id}', 'createResult')->name('admin.students.createResult');
             Route::post('/students/store-result/{id}', 'storeResult')->name('admin.students.storeResult');
@@ -75,7 +75,7 @@ Route::prefix('manage')->group(function () {
             Route::post('/event/store', 'store')->name('admin.events.store');
             Route::get('/event/edit/{id}', 'showEditForm')->name('admin.events.edit');
             Route::put('/event/update/{id}', 'update')->name('admin.events.update');
-            Route::post('/event/delete/{id}', 'destroy')->name('admin.events.destroy');
+            Route::delete('/event/delete/{id}', 'destroy')->name('admin.events.destroy');
            
         });
 
@@ -86,7 +86,7 @@ Route::prefix('manage')->group(function () {
             Route::post('/blog/store', 'store')->name('admin.blogs.store');
             Route::get('/blog/edit/{id}', 'showEditForm')->name('admin.blogs.edit');
             Route::put('/blog/update/{id}', 'update')->name('admin.blogs.update');
-            Route::post('/blog/delete/{id}', 'destroy')->name('admin.blogs.destroy');
+            Route::delete('/blog/delete/{id}', 'destroy')->name('admin.blogs.destroy');
            
         });
 
@@ -151,10 +151,10 @@ Route::prefix('manage')->group(function () {
             Route::get('/about/{id}/edit', 'edit')->name('admin.about.edit');
             Route::put('/about/{id}/update', 'update')->name('admin.about.update');
            
-            Route::post('/about/delete', 'destroy')->name('admin.about.destroy');
+            Route::delete('/about/delete', 'destroy')->name('admin.about.destroy');
            
             Route::get('/about/create', 'create')->name('admin.about.create');
-            Route::Post('/about/store', 'store')->name('admin.about.store');
+            Route::post('/about/store', 'store')->name('admin.about.store');
         });
 
 

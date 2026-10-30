@@ -10,6 +10,7 @@ use App\Models\Student;
 use App\Models\SchoolFeesPayment;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -65,21 +66,60 @@ class StudentController extends Controller
     // }
 
 
+
 public function index(Request $request)
 {
     
     $query = Student::query();
 
     if ($request->filled('search')) {
-        $search = trim($request->input('search'));
 
-        $query->where(function ($q) use ($search) {
-            $q->where('first_name', 'LIKE', "%{$search}%")
-                ->orWhere('middle_name', 'LIKE', "%{$search}%")
-                ->orWhere('last_name', 'LIKE', "%{$search}%")
-                ->orWhere('admission_number', 'LIKE', "%{$search}%");
-        });
-    }
+    $search = trim($request->input('search'));
+
+    $query->where(function ($q) use ($search) {
+
+        // Search by student details
+        $q->where('first_name', 'LIKE', "%{$search}%")
+            ->orWhere('middle_name', 'LIKE', "%{$search}%")
+            ->orWhere('last_name', 'LIKE', "%{$search}%")
+            ->orWhere('admission_number', 'LIKE', "%{$search}%");
+
+        // Search by school fees payment status
+        if (strtolower($search) === 'paid' || strtolower($search) === 'unpaid') {
+
+            $school = SchoolSetting::first();
+
+            $currentSession = $school->session ?? null;
+            $currentTerm = $school->current_term ?? null;
+
+            $termMap = [
+                'first_term' => 'First Term',
+                'second_term' => 'Second Term',
+                'third_term' => 'Third Term',
+            ];
+
+            $termKey = strtolower(trim((string) $currentTerm));
+            $currentTerm = $termMap[$termKey] ?? $currentTerm;
+
+            if ($currentSession && $currentTerm) {
+
+                $paymentQuery = SchoolFeesPayment::select('student_id')
+                    ->whereRaw('TRIM(session) = ?', [trim($currentSession)])
+                    ->whereRaw('LOWER(TRIM(term)) = ?', [
+                        strtolower(trim($currentTerm))
+                    ]);
+
+                if (strtolower($search) === 'paid') {
+                    $paymentQuery->whereRaw('LOWER(TRIM(status)) = ?', ['paid']);
+
+                    $q->orWhereIn('id', $paymentQuery);
+                } else {
+                    $q->orWhereNotIn('id', $paymentQuery);
+                }
+            }
+        }
+    });
+}
 
     if ($request->filled('level')) {
         $query->where('level', $request->input('level'));
@@ -93,7 +133,7 @@ public function index(Request $request)
         $query->where('status', $request->input('status'));
     }
 
-    // Fetch students BEFORE checking payment statuses
+    // Fetch students
     $students = $query
         ->latest()
         ->paginate(10)
@@ -102,42 +142,58 @@ public function index(Request $request)
     // Get current academic session and term
     $school = SchoolSetting::first();
 
-    $currentSession = $school->current_session ?? null;
+    $currentSession = $school->session ?? null;
     $currentTerm = $school->current_term ?? null;
 
+    // Convert School Settings term format to payment table format
+    $termMap = [
+        'first_term'  => 'First Term',
+        'second_term' => 'Second Term',
+        'third_term'  => 'Third Term',
+    ];
+
+    $termKey = strtolower(trim((string) $currentTerm));
+
+    $currentTermFormatted = $termMap[$termKey] ?? $currentTerm;
+
+    // Get payment statuses for students on the current page
     $paymentStatuses = collect();
 
-    if ($currentSession && $currentTerm) {
+    if ($currentSession && $currentTermFormatted) {
+
         $studentIds = $students->getCollection()->pluck('id');
 
         $paymentStatuses = SchoolFeesPayment::whereIn(
             'student_id',
             $studentIds
         )
-            ->where('session', $currentSession)
-            ->where('term', $currentTerm)
+            ->whereRaw('TRIM(session) = ?', [trim($currentSession)])
+            ->whereRaw(
+                'LOWER(TRIM(term)) = ?',
+                [strtolower(trim($currentTermFormatted))]
+            )
             ->pluck('status', 'student_id');
     }
 
     // Attach payment status to each student
-    $students->getCollection()->transform(
-        function ($student) use ($paymentStatuses) {
-            $student->school_fee_status = $paymentStatuses->get(
-                $student->id,
-                'unpaid'
-            );
+    $students->getCollection()->transform(function ($student) use ($paymentStatuses) {
 
-            return $student;
-        }
-    );
+        $student->school_fee_status = strtolower(trim(
+            (string) $paymentStatuses->get($student->id, 'unpaid')
+        ));
+
+        return $student;
+    });
 
     return view('admin.students.index', compact(
         'students',
         'school',
         'currentSession',
-        'currentTerm'
+        'currentTerm',
+        'paymentStatuses'
     ));
 }
+
 
     /**
      * Show create student form.
@@ -274,7 +330,7 @@ if ($request->hasFile('image')) {
     $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
 
     $image->move(
-        public_path('frontend/assets/student'),
+        public_path('frontend/assets/students'),
         $imageName
     );
 
@@ -424,21 +480,21 @@ if ($request->hasFile('image')) {
     {
         $student = Student::findOrFail($id);
 
+    // Delete student image
+    if ($student->image) {
+        $imagePath = public_path('frontend/assets/students/' . $student->image);
 
-        if ($student->image) {
-
-            Storage::disk('public')
-                ->delete($student->image);
-
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
         }
+    }
 
+    // Delete student record
+    $student->delete();
 
-        $student->delete();
-
-
-        return redirect()
-            ->route('admin.students.index')
-            ->with('success', 'Student deleted successfully.');
+    return redirect()
+        ->route('admin.students.index')
+        ->with('success', 'Student deleted successfully.');
     }
 
 

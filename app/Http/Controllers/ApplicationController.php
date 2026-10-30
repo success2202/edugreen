@@ -81,12 +81,19 @@ class ApplicationController extends Controller
         |--------------------------------------------------------------------------
         */
 
-        if ($request->hasFile('student_photo')) {
+       if ($request->hasFile('student_photo')) {
 
-            $validated['student_photo'] =
-                $request->file('student_photo')
-                    ->store('applications', 'public');
-        }
+    $image = $request->file('student_photo');
+
+    $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+
+    $image->move(
+        public_path('frontend/assets/applicants'),
+        $imageName
+    );
+
+    $validated['student_photo'] = $imageName;
+}
 
 
         /*

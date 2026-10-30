@@ -365,12 +365,12 @@
                         </td>
 
                     <td>
-                        @if($currentSession && $currentTerm && $student->school_fee_status === 'paid')
-                            <span class="badge bg-success">Paid</span>
-                        @else
-                            <span class="badge bg-danger">Unpaid</span>
-                        @endif
-                    </td>
+    @if($currentSession && $currentTerm && $student->school_fee_status === 'paid')
+        <span class="badge bg-success">Paid</span>
+    @else
+        <span class="badge bg-danger">Unpaid</span>
+    @endif
+</td>
                         <td>
 
                             @if($student->status)

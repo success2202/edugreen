@@ -167,7 +167,7 @@
             <div class="student-profile-photo">
 
                 @if($student->image)
-                    <img src="{{ asset('storage/' . $student->image) }}"
+                    <img src="{{ asset('frontend/assets/students/' . $student->image) }}"
                          alt="{{ $student->first_name }} {{ $student->last_name }}">
                 @else
                     <div class="student-profile-placeholder">

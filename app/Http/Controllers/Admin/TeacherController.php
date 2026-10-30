@@ -165,18 +165,25 @@ if ($request->hasFile('image')) {
             ->with('success', 'Teacher updated successfully.');
     }
 
+    
     public function destroy(string $id)
-    {
-        $teacher = Teacher::findOrFail($id);
+{
+    $teacher = Teacher::findOrFail($id);
 
-        if ($teacher->image) {
-            Storage::disk('public')->delete($teacher->image);
+    // Delete teacher image from public folder
+    if ($teacher->image) {
+        $imagePath = public_path('frontend/assets/teacher/' . $teacher->image);
+
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
         }
-
-        $teacher->delete();
-
-        return redirect()
-            ->route('admin.teachers.index')
-            ->with('success', 'Teacher deleted successfully.');
     }
+
+    // Delete teacher record
+    $teacher->delete();
+
+    return redirect()
+        ->route('admin.teachers.index')
+        ->with('success', 'Teacher deleted successfully.');
+}
 }

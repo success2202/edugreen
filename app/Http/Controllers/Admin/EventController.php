@@ -158,18 +158,25 @@ if ($request->hasFile('image')) {
             ->with('success', 'Event updated successfully.');
     }
 
-    public function destroy(string $id)
-    {
-        $event = Event::findOrFail($id);
+   public function destroy(string $id)
+{
+    $event = Event::findOrFail($id);
 
-        if ($event->image) {
-            Storage::disk('public')->delete($event->image);
+    // Delete event image from public folder
+    if ($event->image) {
+        $imagePath = public_path('frontend/assets/event/' . $event->image);
+
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
         }
-
-        $event->delete();
-
-        return redirect()
-            ->route('admin.events.index')
-            ->with('success', 'Event deleted successfully.');
     }
+
+    // Delete event record
+    $event->delete();
+
+    return redirect()
+        ->route('admin.events.index')
+        ->with('success', 'Event deleted successfully.');
+}
+
 }

@@ -151,7 +151,7 @@
 
                     <div class="mb-3">
 
-                        <img src="{{ asset('storage/' . $student->image) }}"
+                        <img src="{{ asset('frontend/assets/students/' . $student->image) }}"
                              style="width:90px;height:90px;object-fit:cover;"
                              alt="Student">
 
