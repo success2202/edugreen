@@ -406,6 +406,227 @@
         min-width: 1000px;
     }
 }
+
+
+
+
+/* Scholarship Admin - Full Width Responsive Layout */
+.scholarship-admin {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px;
+    margin: 0 !important;
+    box-sizing: border-box;
+}
+
+.scholarship-admin *,
+.scholarship-admin *::before,
+.scholarship-admin *::after {
+    box-sizing: border-box;
+}
+
+/* Ensure Bootstrap columns fit correctly */
+.scholarship-admin .row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.scholarship-admin .row > [class*="col-"] {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Header */
+.scholarship-admin .page-header-custom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Summary cards */
+.scholarship-admin .summary-card {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 20px;
+}
+
+/* Application panel */
+.scholarship-admin .application-panel {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+/* Panel heading */
+.scholarship-admin .panel-heading-custom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Search box */
+.scholarship-admin .search-box {
+    max-width: 100%;
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    .scholarship-admin {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px !important;
+        margin: 0 !important;
+    }
+
+    /* Page header */
+    .scholarship-admin .page-header-custom {
+        width: 100%;
+        padding: 18px 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .scholarship-admin .page-header-custom h2 {
+        font-size: 19px;
+        line-height: 1.4;
+    }
+
+    .scholarship-admin .page-header-custom p {
+        font-size: 12px;
+    }
+
+    .scholarship-admin .header-icon {
+        flex-shrink: 0;
+    }
+
+    /* Summary cards */
+    .scholarship-admin .row {
+        margin-left: -7px;
+        margin-right: -7px;
+    }
+
+    .scholarship-admin .row > [class*="col-"] {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    .scholarship-admin .col-sm-6 {
+        width: 50%;
+        float: left;
+    }
+
+    .scholarship-admin .summary-card {
+        width: 100%;
+        min-height: 105px;
+        padding: 12px;
+        margin-bottom: 14px;
+    }
+
+    .scholarship-admin .summary-label {
+        font-size: 11px;
+    }
+
+    .scholarship-admin .summary-value {
+        font-size: 22px;
+    }
+
+    /* Applications panel */
+    .scholarship-admin .application-panel {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 10px;
+    }
+
+    /* Panel heading */
+    .scholarship-admin .panel-heading-custom {
+        width: 100%;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .scholarship-admin .panel-heading-custom h3 {
+        font-size: 18px;
+    }
+
+    .scholarship-admin .search-box {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .scholarship-admin .search-box input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Table horizontal scrolling */
+    .scholarship-admin .scholarship-applications-scroll {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .scholarship-admin .application-table {
+        min-width: 1000px;
+    }
+
+    /* Pagination */
+    .scholarship-admin .pagination-wrapper {
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        overflow-x: auto;
+    }
+
+    .scholarship-admin .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+
+}
+
+/* Very small mobile screens */
+@media screen and (max-width: 380px) {
+
+    .scholarship-admin {
+        padding: 8px !important;
+    }
+
+    .scholarship-admin .col-sm-6 {
+        width: 100%;
+    }
+
+    .scholarship-admin .summary-card {
+        min-height: auto;
+    }
+
+    .scholarship-admin .page-header-custom h2 {
+        font-size: 17px;
+    }
+
+}
 </style>
 
 <div class="container-fluid scholarship-admin">
