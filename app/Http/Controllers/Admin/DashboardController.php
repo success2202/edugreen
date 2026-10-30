@@ -9,6 +9,7 @@ use App\Models\Event;
 use App\Models\Blog;
 use App\Models\Gallery;
 use App\Models\Application;
+use App\Models\ScholarshipApplication;
 use App\Http\Controllers\Admin\Schema;
 use App\Models\SchoolSetting;
 use Illuminate\Http\Request;
@@ -30,6 +31,9 @@ class DashboardController extends Controller
         $totalTeachers = Teacher::count();
 
         $totalApplications = Application::count();
+
+        $totalScholarships = ScholarshipApplication::count();
+        $totalEvents = Event::count();
 
         $upcomingEvents = Event::whereDate(
             'event_date',
@@ -55,6 +59,11 @@ class DashboardController extends Controller
             ->take(3)
             ->get();
 
+        // $recentScholarshipApplications = ScholarshipApplication::where('type', 'scholarship')
+        //     ->latest()
+        //     ->take(3)
+        //     ->get();
+
         $recentBlogs = Blog::latest()
             ->take(3)
             ->get();
@@ -71,7 +80,9 @@ class DashboardController extends Controller
             // 'totalFacilities',
             'recentStudents',
             'recentEvents',
+            'totalEvents',
             'school',
+            'totalScholarships',
             'recentBlogs'
         ));
     }

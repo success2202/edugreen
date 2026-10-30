@@ -115,10 +115,10 @@
 
         </div>
 
-        <h3>{{ $upcomingEvents}}</h3>
-
+        <h3>{{ $totalEvents}}</h3>
+ 
         <p>
-            Upcoming Events
+             Events
         </p>
 
     </div>
@@ -210,10 +210,10 @@
 
         </div>
 
-        <h3>0</h3>
+        <h3>{{ $totalScholarships }}</h3>
 
         <p>
-            Scholarship
+            Total Scholarships
         </p>
 
     </div>
