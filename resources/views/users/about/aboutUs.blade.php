@@ -1134,7 +1134,7 @@
             <h2>Our Core <span>Values</span></h2>
             <p>
                 The principles that guide how we teach, support
-                and inspire every child at Edu Green School.
+                and inspire every child at Edugreen School.
             </p>
         </div>
 
@@ -1192,7 +1192,7 @@
                     <div class="edu-value-icon">
                         <i class="ti ti-award"></i>
                     </div>
-                    <h3>Goodness</h3>
+                    <h3>Godliness</h3>
                     <p>
                          We are devout and morally upright in all
                           our dealings, conforming to the precepts and wishes of the one and only true God.

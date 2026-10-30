@@ -67,8 +67,8 @@
                             </li>
 
                             <li>
-                                <a href="{{ url('/about') }}">
-                                    About Us
+                                <a href="{{ url('/about-Us') }}">
+                                    About Us 
                                 </a>
                             </li>
 
