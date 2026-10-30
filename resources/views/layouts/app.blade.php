@@ -5,10 +5,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="description" content="EduLight - Multipurpose Education Template">
-	<meta name="keywords" content="edulight, bootstrap, education template, template">
+	<meta name="description" content="Edugreen - Schools">
+	{{-- <meta name="keywords" content="edugreen, bootstrap, education template, template"> --}}
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>EduGreen  School</title>
+	<title>Edugreen  School</title>
 
 	<!-- Favicon -->
 	{{-- <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.ico') }}" type="image/x-icon">
