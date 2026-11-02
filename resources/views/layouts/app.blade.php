@@ -1603,6 +1603,58 @@
     }
 }
 
+
+
+
+
+.back-to-top {
+    position: fixed;
+    bottom: 95px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background: #176b45;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: #278553;
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+@media (max-width: 576px) {
+    .back-to-top {
+        bottom: 85px;
+        right: 15px;
+    }
+
+    .whatsapp-float {
+        bottom: 20px;
+        right: 15px;
+    }
+}
         </style>
 
 
@@ -1615,7 +1667,10 @@
 
     {{-- SCHOOL PRELOADER --}}
 
-
+<!-- Back to Top Button -->
+<a href="#" id="backToTop" class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+</a>
 
 {{-- Edugreen Floating WhatsApp Chat --}}
 
@@ -1969,7 +2024,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        backToTop.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
     @yield('scripts')
+
+
+
 </body>
 
 
