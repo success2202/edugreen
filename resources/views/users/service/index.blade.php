@@ -606,8 +606,8 @@
             Edugreen Schools.
         </p>
 
-        <a href="{{ url('/admissions') }}" class="cta-button">
-            Explore Admissions
+        <a href="{{ url('/application') }}" class="cta-button">
+            Apply for Admissions
             &nbsp; <i class="fa fa-arrow-right"></i>
         </a>
     </section>
